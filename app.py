@@ -150,6 +150,9 @@ def extract_hijri_day(value):
         nums.append(int(current))
     if not nums:
         return np.nan
+        match = re.match(r"^(\d{1,2})[-/](\d{1,2})[-/](\d{4})$", text)
+    if match:
+        return int(match.group(1))
     if nums[0] >= 1400 and len(nums) >= 3:
         return nums[2]
     if nums[-1] >= 1400 and len(nums) >= 3:
