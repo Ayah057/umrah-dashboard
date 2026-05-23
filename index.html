@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>بوابة بيانات المعتمرين</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --ivory:#f9f4e8;
+  --ivory2:#f2e9d0;
+  --ivory3:#e8dfc0;
+  --teal:#1a6e6e;
+  --teal-dark:#064545;
+  --teal2:#2a9090;
+  --teal-l:#e0f0f0;
+  --gold:#9a6e1a;
+  --gold2:#c49030;
+  --gold-l:#fdf3dc;
+  --ink:#1c1a14;
+  --ink2:#3a3520;
+  --muted:#7a7060;
+  --border:#d4c9a8;
+  --r:16px;
+}
+
+body{
+  font-family:"Tajawal",sans-serif;
+  background:var(--ivory);
+  color:var(--ink);
+  min-height:100vh;
+}
+
+/* ================= INTRO PAGE ================= */
+
+.intro-page{
+  min-height:100vh;
+  background:
+    linear-gradient(135deg, rgba(249,244,232,.97), rgba(242,233,208,.95)),
+    radial-gradient(circle at 10% 15%, rgba(196,144,48,.18), transparent 28%),
+    radial-gradient(circle at 90% 85%, rgba(26,110,110,.15), transparent 32%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  position:relative;
+  overflow:hidden;
+}
+
+.intro-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 24px, rgba(26,110,110,.035) 24px, rgba(26,110,110,.035) 25px),
+    repeating-linear-gradient(-45deg, transparent, transparent 24px, rgba(196,144,48,.04) 24px, rgba(196,144,48,.04) 25px);
+  pointer-events:none;
+}
+
+.intro-card{
+  width:100%;
+  max-width:1050px;
+  background:linear-gradient(135deg,#fffdf7 0%,#f9f4e8 55%,#eef6f1 100%);
+  border:1px solid var(--border);
+  border-radius:32px;
+  box-shadow:0 22px 55px rgba(15,81,50,.14);
+  overflow:hidden;
+  position:relative;
+  z-index:1;
+}
+
+.intro-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:7px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--gold2) 0,
+    var(--gold2) 16px,
+    var(--gold) 16px,
+    var(--gold) 32px,
+    #e8c060 32px,
+    #e8c060 48px
+  );
+}
+
+.intro-top{
+  display:grid;
+  grid-template-columns:150px 1fr 150px;
+  align-items:center;
+  gap:20px;
+  padding:42px 50px 16px;
+}
+
+.intro-ornament{
+  height:130px;
+  border-radius:24px;
+  background:linear-gradient(135deg, rgba(26,110,110,.12), rgba(196,144,48,.12));
+  border:1px solid rgba(212,201,168,.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold);
+  font-size:56px;
+}
+
+.intro-head{
+  text-align:center;
+}
+
+.intro-logo{
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  margin:0 auto 12px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(196,144,48,.5);
+  background:rgba(196,144,48,.08);
+  color:var(--gold);
+  font-size:42px;
+}
+
+.intro-title{
+  font-family:"Amiri",serif;
+  color:var(--teal-dark);
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.intro-subtitle{
+  color:var(--gold);
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.intro-desc{
+  color:var(--ink2);
+  font-size:16px;
+  font-weight:600;
+}
+
+.intro-form{
+  padding:18px 54px 44px;
+}
+
+.form-box{
+  background:rgba(255,255,255,.45);
+  border:1px solid rgba(212,201,168,.85);
+  border-radius:24px;
+  padding:26px;
+}
+
+.form-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:22px;
+  color:var(--teal-dark);
+  font-weight:800;
+  font-size:18px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.form-field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.form-field label{
+  font-size:13px;
+  color:var(--teal-dark);
+  font-weight:800;
+}
+
+.form-field input,
+.form-field select{
+  width:100%;
+  border:1px solid var(--border);
+  background:#fffdf7;
+  border-radius:13px;
+  padding:13px 14px;
+  font-family:"Tajawal";
+  font-size:14px;
+  color:var(--ink);
+  outline:none;
+  min-height:48px;
+}
+
+.form-field input:focus,
+.form-field select:focus{
+  border-color:var(--teal);
+  box-shadow:0 0 0 3px rgba(26,110,110,.10);
+}
+
+.rule-box{
+  margin-top:16px;
+  background:#eef6f1;
+  border:1px solid #c8ded7;
+  color:var(--teal-dark);
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.8;
+}
+
+.rule-box.warning{
+  background:#fff3dc;
+  border-color:#e3c27a;
+  color:#8a5b08;
+}
+
+.intro-actions{
+  margin-top:24px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.enter-btn{
+  border:none;
+  background:linear-gradient(135deg,var(--teal-dark),var(--teal));
+  color:white;
+  font-family:"Tajawal";
+  font-weight:800;
+  font-size:16px;
+  padding:14px 52px;
+  border-radius:14px;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(26,110,110,.2);
+}
+
+.enter-btn:hover{
+  background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+}
+
+.clear-btn{
+  border:1px solid var(--border);
+  background:var(--ivory);
+  color:var(--gold);
+  font-family:"Tajawal";
+  font-weight:800;
+  font-size:15px;
+  padding:14px 28px;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+.intro-note{
+  margin-top:16px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-page{
+  display:none;
+}
+
+.geo-pattern{
+  background-color:var(--teal);
+  background-image:
+    repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,.04) 18px,rgba(255,255,255,.04) 19px),
+    repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,.04) 18px,rgba(255,255,255,.04) 19px);
+}
+
+.app{
+  display:flex;
+  min-height:100vh;
+}
+
+.sidebar{
+  width:230px;
+  background:var(--teal);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.sidebar::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:4px;
+  background:repeating-linear-gradient(90deg,var(--gold2) 0,var(--gold2) 12px,var(--gold) 12px,var(--gold) 24px,#e8c060 24px,#e8c060 36px,var(--gold2) 36px);
+}
+
+.sb-header{
+  padding:28px 18px 22px;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.rosette{
+  width:56px;
+  height:56px;
+  margin:0 auto 14px;
+}
+
+.sb-title{
+  font-family:"Amiri",serif;
+  font-size:17px;
+  font-weight:700;
+  color:#f0e8cc;
+  text-align:center;
+  line-height:1.5;
+}
+
+.sb-en{
+  font-size:11px;
+  color:rgba(255,255,255,.55);
+  text-align:center;
+  margin-top:4px;
+  letter-spacing:.5px;
+}
+
+.nav{
+  padding:14px 12px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.nav-sec{
+  font-size:10px;
+  color:rgba(255,255,255,.38);
+  letter-spacing:1.5px;
+  padding:10px 8px 5px;
+}
+
+.nav a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  color:rgba(255,255,255,.78);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  transition:.18s;
+}
+
+.nav a.active{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+}
+
+.nav a:hover{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+}
+
+.sb-foot{
+  padding:16px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+.sb-foot-card{
+  background:rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+}
+
+.sb-foot-card p{
+  font-size:12px;
+  color:#c8e8e0;
+  font-weight:700;
+}
+
+.sb-foot-card small{
+  font-size:11px;
+  color:rgba(255,255,255,.45);
+  display:block;
+  margin-top:3px;
+}
+
+.main{
+  margin-right:230px;
+  width:calc(100% - 230px);
+  display:flex;
+  flex-direction:column;
+}
+
+.topbar{
+  background:var(--ivory);
+  border-bottom:2px solid var(--border);
+  height:60px;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.tb-left h1{
+  font-family:"Amiri",serif;
+  font-size:20px;
+  color:var(--teal);
+  font-weight:700;
+}
+
+.tb-left span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.tb-right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.tb-pill{
+  font-size:12px;
+  padding:5px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--ivory2);
+  color:var(--ink2);
+}
+
+.tb-live{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-size:12px;
+  padding:5px 12px;
+  border:1px solid #a8d8c8;
+  border-radius:999px;
+  background:#e0f2ec;
+  color:var(--teal);
+  font-weight:700;
+}
+
+.dot-live{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--teal2);
+  animation:blink 1.8s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:1}
+  50%{opacity:.3}
+}
+
+.visitor-strip{
+  margin:18px 28px 0;
+  background:#fffdf7;
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:13px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  color:var(--teal-dark);
+  font-weight:800;
+  box-shadow:0 8px 24px rgba(15,81,50,.05);
+}
+
+.visitor-strip span{
+  font-size:13px;
+}
+
+.logout-btn{
+  background:var(--ivory2);
+  border:1px solid var(--border);
+  color:var(--gold);
+  border-radius:10px;
+  padding:7px 14px;
+  font-family:"Tajawal";
+  cursor:pointer;
+  font-weight:800;
+}
+
+.hero{
+  margin:22px 28px 0;
+  background:var(--teal);
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:180px 1fr 180px;
+  align-items:stretch;
+  overflow:hidden;
+  border:1px solid #1a5a5a;
+}
+
+.hero-ornament{
+  background:rgba(0,0,0,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold2);
+  font-size:58px;
+}
+
+.hero-center{
+  padding:30px 24px;
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  color:var(--gold2);
+  border:1px solid rgba(196,144,48,.4);
+  border-radius:999px;
+  padding:4px 14px;
+  margin-bottom:12px;
+  background:rgba(196,144,48,.08);
+}
+
+.hero-title{
+  font-family:"Amiri",serif;
+  font-size:32px;
+  font-weight:700;
+  color:#f0e8cc;
+  line-height:1.4;
+  margin-bottom:4px;
+}
+
+.hero-sub{
+  font-size:14px;
+  color:rgba(255,255,255,.65);
+  margin-bottom:16px;
+}
+
+.hero-stats{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.hero-stat{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  padding:10px 18px;
+}
+
+.hero-stat .v{
+  font-size:20px;
+  font-weight:800;
+  color:#f0e8cc;
+  font-family:"Amiri",serif;
+}
+
+.hero-stat .l{
+  font-size:11px;
+  color:rgba(255,255,255,.58);
+  margin-top:2px;
+}
+
+.filter-bar{
+  margin:18px 28px 0;
+  background:var(--ivory2);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:16px 20px;
+  display:flex;
+  align-items:flex-end;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  flex:1;
+  min-width:130px;
+}
+
+.field label{
+  font-size:11px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.field select,
+.field input{
+  background:var(--ivory);
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:9px 12px;
+  font-family:"Tajawal";
+  font-size:13px;
+  color:var(--ink);
+}
+
+.btn-s{
+  background:var(--teal);
+  color:#fff;
+  border:none;
+  border-radius:9px;
+  padding:9px 20px;
+  font-family:"Tajawal";
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  height:38px;
+}
+
+.btn-r{
+  background:var(--ivory);
+  color:var(--muted);
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:9px 16px;
+  font-family:"Tajawal";
+  font-size:13px;
+  cursor:pointer;
+  height:38px;
+}
+
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin:18px 28px 0;
+}
+
+.kpi{
+  background:var(--ivory);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:18px;
+  position:relative;
+  overflow:hidden;
+}
+
+.kpi::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:40px;
+  height:40px;
+  background:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(0,0,0,.04) 4px,rgba(0,0,0,.04) 5px);
+  border-radius:0 var(--r) 0 var(--r);
+}
+
+.kpi-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:10px;
+}
+
+.kpi-lbl{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.kpi-icon{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--ivory2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+}
+
+.kpi-val{
+  font-family:"Amiri",serif;
+  font-size:28px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1;
+}
+
+.kpi.t .kpi-val{
+  color:var(--teal);
+}
+
+.kpi.g .kpi-val{
+  color:var(--gold);
+}
+
+.kpi-sub{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.kpi-badge{
+  display:inline-flex;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:999px;
+  margin-top:6px;
+}
+
+.badge-t{
+  background:var(--teal-l);
+  color:var(--teal);
+}
+
+.badge-g{
+  background:var(--gold-l);
+  color:var(--gold);
+}
+
+.badge-n{
+  background:var(--ivory2);
+  color:var(--muted);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:14px;
+  margin:18px 28px;
+}
+
+.panel{
+  background:var(--ivory);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.panel-head{
+  padding:14px 18px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--ivory2);
+}
+
+.ph-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.ph-icon{
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  background:var(--teal-l);
+  border:1px solid #b0d8d8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+}
+
+.panel-head h3{
+  font-size:15px;
+  font-weight:700;
+  color:var(--teal);
+  font-family:"Amiri",serif;
+}
+
+.panel-head p{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.btn-exp{
+  background:var(--ivory);
+  color:var(--gold);
+  border:1px solid #d4c090;
+  border-radius:8px;
+  padding:6px 13px;
+  font-family:"Tajawal";
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.tbl-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12.5px;
+}
+
+thead tr{
+  background:var(--ivory2);
+}
+
+th{
+  padding:10px 9px;
+  text-align:center;
+  color:var(--muted);
+  font-weight:700;
+  font-size:11px;
+  border-bottom:1px solid var(--border);
+  white-space:nowrap;
+}
+
+td{
+  padding:10px 9px;
+  text-align:center;
+  border-bottom:1px solid var(--ivory3);
+  color:var(--ink2);
+  white-space:nowrap;
+}
+
+tbody tr:hover td{
+  background:var(--gold-l);
+}
+
+.badge{
+  padding:3px 10px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.badge-low{
+  background:#e0f2e0;
+  color:#2a6a2a;
+  border:1px solid #b0d8b0;
+}
+
+.badge-mid{
+  background:var(--gold-l);
+  color:var(--gold);
+  border:1px solid #dfc88a;
+}
+
+.badge-high{
+  background:#fde8d8;
+  color:#9a3a10;
+  border:1px solid #f0b898;
+}
+
+.pager{
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:12px;
+  color:var(--muted);
+  background:var(--ivory2);
+  border-top:1px solid var(--border);
+}
+
+.pages{
+  display:flex;
+  gap:4px;
+}
+
+.pages button{
+  width:27px;
+  height:27px;
+  border:1px solid var(--border);
+  background:var(--ivory);
+  color:var(--muted);
+  border-radius:6px;
+  cursor:pointer;
+  font-family:"Tajawal";
+}
+
+.pages button.active{
+  background:var(--teal);
+  border-color:var(--teal);
+  color:#fff;
+}
+
+.charts{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.chart-body{
+  padding:16px 18px;
+  flex:1;
+}
+
+.lc-wrap{
+  height:185px;
+}
+
+.lc-wrap svg{
+  width:100%;
+  height:100%;
+}
+
+.bc-wrap{
+  padding:4px 10px 0;
+  height:205px;
+  display:flex;
+  align-items:flex-end;
+  gap:7px;
+}
+
+.bc-item{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  height:100%;
+  gap:4px;
+}
+
+.bc-top{
+  font-size:10px;
+  font-weight:800;
+  color:var(--gold);
+}
+
+.bc-bar{
+  width:100%;
+  max-width:30px;
+  border-radius:4px 4px 0 0;
+  background:var(--gold2);
+  opacity:.75;
+}
+
+.bc-bar.hi{
+  background:var(--teal2);
+  opacity:.9;
+}
+
+.bc-lbl{
+  font-size:10px;
+  color:var(--muted);
+  text-align:center;
+}
+
+.footer{
+  margin:4px 28px 24px;
+  background:var(--ivory2);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+@media(max-width:1150px){
+  .form-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .kpis{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .grid{
+    grid-template-columns:1fr;
+  }
+  .hero{
+    grid-template-columns:1fr;
+  }
+  .hero-ornament{
+    display:none;
+  }
+  .intro-top{
+    grid-template-columns:1fr;
+  }
+  .intro-ornament{
+    display:none;
+  }
+}
+
+@media(max-width:760px){
+  .sidebar{
+    position:static;
+    width:100%;
+  }
+  .main{
+    margin-right:0;
+    width:100%;
+  }
+  .app{
+    flex-direction:column;
+  }
+  .form-grid,
+  .kpis{
+    grid-template-columns:1fr;
+  }
+  .topbar{
+    height:auto;
+    padding:14px;
+    flex-direction:column;
+    gap:10px;
+  }
+  .intro-top,
+  .intro-form{
+    padding-left:24px;
+    padding-right:24px;
+  }
+  .intro-title{
+    font-size:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= INTRO PAGE ================= -->
+<section class="intro-page" id="introPage">
+  <div class="intro-card">
+
+    <div class="intro-top">
+      <div class="intro-ornament">✦</div>
+
+      <div class="intro-head">
+        <div class="intro-logo">🕋</div>
+        <div class="intro-title">مرحباً بك في بوابة بيانات المعتمرين</div>
+        <div class="intro-subtitle">Umrah Visitors Data Portal</div>
+        <div class="intro-desc">الرجاء إدخال بيانات الزائر للمتابعة إلى لوحة المؤشرات</div>
+      </div>
+
+      <div class="intro-ornament">✦</div>
+    </div>
+
+    <div class="intro-form">
+      <div class="form-box">
+        <div class="form-title">📋 نموذج بيانات الزائر</div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label>الاسم الكامل</label>
+            <input type="text" id="visitorName" placeholder="أدخل اسم الزائر الكامل">
+          </div>
+
+          <div class="form-field">
+            <label>الجنسية</label>
+            <select id="visitorNationality" onchange="updateHijriDayRules()">
+              <option value="">اختر الجنسية</option>
+              <option value="سعودي">سعودي</option>
+              <option value="غير سعودي">غير سعودي</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>الشهر الهجري</label>
+            <select id="hijriMonth" onchange="updateHijriDayRules()">
+              <option value="">اختر الشهر الهجري</option>
+              <option>محرم</option>
+              <option>صفر</option>
+              <option>ربيع الأول</option>
+              <option>ربيع الآخر</option>
+              <option>جمادى الأولى</option>
+              <option>جمادى الآخرة</option>
+              <option>رجب</option>
+              <option>شعبان</option>
+              <option>رمضان</option>
+              <option>شوال</option>
+              <option>ذو القعدة</option>
+              <option>ذو الحجة</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>اليوم الهجري</label>
+            <select id="hijriDay" onchange="validateHijriDayLive()">
+              <option value="">اختر اليوم</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="rule-box" id="ruleBox" style="display:none">
+          ✅ إذا كان الزائر سعوديًا يمكنه اختيار أي يوم في شهر ذو القعدة. أما غير السعودي فلا يمكنه اختيار الأيام من 1 إلى 15 في شهر ذو القعدة.
+        </div>
+
+        <div class="intro-actions">
+          <button class="enter-btn" onclick="goToDashboard()">دخول إلى الداشبورد</button>
+          <button class="clear-btn" onclick="clearIntroForm()">مسح البيانات</button>
+        </div>
+
+        <div class="intro-note">
+          سيتم عرض بيانات الزائر في أعلى الداشبورد بعد الدخول.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DASHBOARD PAGE ================= -->
+<section class="dashboard-page" id="dashboardPage">
+
+<div class="app">
+
+<aside class="sidebar geo-pattern">
+  <div class="sb-header">
+    <div class="rosette">
+      <svg viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="27,4 31,20 44,10 34,22 50,26 34,30 44,44 31,34 27,50 23,34 10,44 20,30 4,26 20,22 10,10 23,20" fill="none" stroke="#c49030" stroke-width="1.2"/>
+        <circle cx="27" cy="27" r="8" fill="rgba(196,144,48,.18)" stroke="#c49030"/>
+        <circle cx="27" cy="27" r="2" fill="#c49030"/>
+      </svg>
+    </div>
+    <div class="sb-title">بوابة بيانات المعتمرين</div>
+    <div class="sb-en">Umrah Visitors Data Portal</div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-sec">القائمة الرئيسية</div>
+    <a href="#" class="active" onclick="showPage('main',this);return false;"><span>🏠</span> الرئيسية</a>
+    <a href="#" onclick="showPage('indicators',this);return false;"><span>📊</span> لوحة المؤشرات</a>
+    <a href="#" onclick="showPage('model',this);return false;"><span>🤖</span> نموذج التنبؤ</a>
+  </nav>
+
+  <div class="sb-foot">
+    <div class="sb-foot-card">
+      <p>🛡️ بيانات موثوقة ومحدّثة</p>
+      <small>تحديث دوري · معايير جودة عالية</small>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="topbar">
+    <div class="tb-left">
+      <h1>بوابة بيانات المعتمرين</h1>
+      <span>Umrah Visitors Data Portal — 1446 هـ</span>
+    </div>
+    <div class="tb-right">
+      <div class="tb-pill">📅 1446/11/20 هـ · 2025/05/18 م</div>
+      <div class="tb-live"><span class="dot-live"></span>محدّث الآن</div>
+    </div>
+  </div>
+
+  <div class="visitor-strip">
+    <span>👤 الاسم: <b id="displayName">-</b></span>
+    <span>🌍 الجنسية: <b id="displayNationality">-</b></span>
+    <span>🕌 الشهر الهجري: <b id="displayHijriMonth">-</b></span>
+    <span>📌 اليوم الهجري: <b id="displayHijriDay">-</b></span>
+    <button class="logout-btn" onclick="backToIntro()">↻ رجوع للمقدمة</button>
+  </div>
+
+  <div id="page-main">
+  <div class="hero">
+    <div class="hero-ornament">✦</div>
+
+    <div class="hero-center">
+      <div class="hero-badge">✦ مملكة العربية السعودية — وزارة الحج والعمرة ✦</div>
+      <div class="hero-title">بوابة بيانات المعتمرين</div>
+      <div class="hero-sub">مصدر بيانات موثوق لدعم الأبحاث والدراسات</div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="v">18.7M</div>
+          <div class="l">إجمالي المعتمرين</div>
+        </div>
+        <div class="hero-stat">
+          <div class="v">124,949</div>
+          <div class="l">متوسط يومي</div>
+        </div>
+        <div class="hero-stat">
+          <div class="v">1446 هـ</div>
+          <div class="l">الموسم الحالي</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-ornament">✦</div>
+  </div>
+
+  <div class="filter-bar">
+    <div class="field">
+      <label>السنة الهجرية</label>
+      <select><option>1446 هـ</option><option>1445 هـ</option><option>1444 هـ</option></select>
+    </div>
+
+    <div class="field">
+      <label>الشهر الهجري</label>
+      <select><option>الكل</option><option>رمضان</option><option>شعبان</option><option>محرم</option></select>
+    </div>
+
+    <div class="field">
+      <label>من تاريخ ميلادي</label>
+      <input type="date" value="2025-01-01">
+    </div>
+
+    <div class="field">
+      <label>إلى تاريخ ميلادي</label>
+      <input type="date" value="2025-05-18">
+    </div>
+
+    <div class="field">
+      <label>فئة الطقس</label>
+      <select><option>الكل</option><option>حار</option><option>معتدل</option><option>حار جزئياً</option></select>
+    </div>
+
+    <button class="btn-s">🔍 بحث</button>
+    <button class="btn-r">↻ إعادة تعيين</button>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi t">
+      <div class="kpi-top">
+        <div class="kpi-lbl">إجمالي عدد المعتمرين</div>
+        <div class="kpi-icon">👥</div>
+      </div>
+      <div class="kpi-val">18,742,356</div>
+      <div class="kpi-sub">خلال الفترة المحددة</div>
+      <span class="kpi-badge badge-t">▲ 12.4%</span>
+    </div>
+
+    <div class="kpi g">
+      <div class="kpi-top">
+        <div class="kpi-lbl">متوسط المعتمرين اليومي</div>
+        <div class="kpi-icon">📈</div>
+      </div>
+      <div class="kpi-val">124,949</div>
+      <div class="kpi-sub">معتمر / يوم</div>
+      <span class="kpi-badge badge-g">▲ 8.1%</span>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-top">
+        <div class="kpi-lbl">ذروة الموسم</div>
+        <div class="kpi-icon">📅</div>
+      </div>
+      <div class="kpi-val" style="font-size:20px;color:var(--ink)">شعبان — رمضان</div>
+      <div class="kpi-sub">1446 هـ</div>
+      <span class="kpi-badge badge-n">6.1M في رمضان</span>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-top">
+        <div class="kpi-lbl">مستوى الازدحام الحالي</div>
+        <div class="kpi-icon">👪</div>
+      </div>
+      <div class="kpi-val" style="font-size:22px;color:var(--gold)">متوسط</div>
+      <div class="kpi-sub">58%</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="panel">
+      <div class="panel-head">
+        <div class="ph-left">
+          <div class="ph-icon">📋</div>
+          <div>
+            <h3>بيانات المعتمرين اليومية</h3>
+            <p>عرض 7 من 2,928 سجل</p>
+          </div>
+        </div>
+        <button class="btn-exp">⬇ تصدير</button>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>السنة الهجرية</th>
+              <th>التاريخ الهجري</th>
+              <th>الشهر</th>
+              <th>التاريخ الميلادي</th>
+              <th>اليوم</th>
+              <th>الحرارة</th>
+              <th>الطقس</th>
+              <th>المعتمرون</th>
+              <th>موسم الحج</th>
+              <th>الازدحام</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr><td>1446</td><td>01/08/1446</td><td>محرم</td><td>2024/07/07</td><td>الأحد</td><td style="color:#c05020">38.2°</td><td>☀️ حار</td><td style="font-weight:600">85,214</td><td style="color:var(--muted)">لا</td><td><span class="badge badge-low">منخفض</span></td></tr>
+            <tr><td>1446</td><td>02/08/1446</td><td>محرم</td><td>2024/07/08</td><td>الاثنين</td><td style="color:#c05020">39.1°</td><td>☀️ حار</td><td style="font-weight:600">87,650</td><td style="color:var(--muted)">لا</td><td><span class="badge badge-low">منخفض</span></td></tr>
+            <tr><td>1446</td><td>03/08/1446</td><td>محرم</td><td>2024/07/09</td><td>الثلاثاء</td><td style="color:#c05020">37.6°</td><td>☀️ حار</td><td style="font-weight:600">90,732</td><td style="color:var(--muted)">لا</td><td><span class="badge badge-mid">متوسط</span></td></tr>
+            <tr><td>1446</td><td>04/08/1446</td><td>محرم</td><td>2024/07/10</td><td>الأربعاء</td><td style="color:#c05020">38.8°</td><td>☀️ حار</td><td style="font-weight:600">94,118</td><td style="color:var(--muted)">لا</td><td><span class="badge badge-mid">متوسط</span></td></tr>
+            <tr><td>1446</td><td>05/08/1446</td><td>محرم</td><td>2024/07/11</td><td>الخميس</td><td style="color:#c05020">39.3°</td><td>☀️ حار</td><td style="font-weight:600">98,765</td><td style="color:var(--muted)">لا</td><td><span class="badge badge-mid">متوسط</span></td></tr>
+            <tr><td>1446</td><td>06/08/1446</td><td>محرم</td><td>2024/07/12</td><td>الجمعة</td><td style="color:#c05020">37.9°</td><td>🌤️ جزئياً</td><td style="font-weight:600">112,334</td><td style="color:var(--muted)">لا</td><td><span class="badge badge-high">مرتفع</span></td></tr>
+            <tr><td>1446</td><td>07/08/1446</td><td>محرم</td><td>2024/07/13</td><td>السبت</td><td style="color:#c05020">36.7°</td><td>🌤️ جزئياً</td><td style="font-weight:600">105,997</td><td style="color:var(--muted)">لا</td><td><span class="badge badge-high">مرتفع</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pager">
+        <div class="pages">
+          <button>‹</button>
+          <button class="active">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button>›</button>
+        </div>
+        <div>عرض 1 – 7 من 2,928 سجل</div>
+      </div>
+    </div>
+
+    <div class="charts">
+
+      <div class="panel">
+        <div class="panel-head">
+          <div class="ph-left">
+            <div class="ph-icon">📈</div>
+            <div>
+              <h3>اتجاه أعداد المعتمرين اليومي</h3>
+              <p>آخر 90 يوم</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-body">
+          <div class="lc-wrap">
+            <svg viewBox="0 0 500 165" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1a6e6e" stop-opacity=".22"/>
+                  <stop offset="100%" stop-color="#1a6e6e" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <line x1="0" y1="40" x2="500" y2="40" stroke="#e0d8c0" stroke-width=".8"/>
+              <line x1="0" y1="80" x2="500" y2="80" stroke="#e0d8c0" stroke-width=".8"/>
+              <line x1="0" y1="120" x2="500" y2="120" stroke="#e0d8c0" stroke-width=".8"/>
+              <polygon points="0,135 30,128 60,132 90,120 120,112 150,102 180,108 210,90 240,74 270,90 300,60 330,68 360,52 390,46 420,64 450,77 480,70 500,86 500,165 0,165" fill="url(#tg)"/>
+              <polyline points="0,135 30,128 60,132 90,120 120,112 150,102 180,108 210,90 240,74 270,90 300,60 330,68 360,52 390,46 420,64 450,77 480,70 500,86" fill="none" stroke="#1a6e6e" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div class="ph-left">
+            <div class="ph-icon">📊</div>
+            <div>
+              <h3>المعتمرون حسب الشهر الهجري</h3>
+              <p>1446 هـ</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-body">
+          <div class="bc-wrap">
+            <div class="bc-item"><span class="bc-top">0.64M</span><div class="bc-bar" style="height:30px"></div><span class="bc-lbl">محرم</span></div>
+            <div class="bc-item"><span class="bc-top">0.72M</span><div class="bc-bar" style="height:36px"></div><span class="bc-lbl">صفر</span></div>
+            <div class="bc-item"><span class="bc-top">0.85M</span><div class="bc-bar" style="height:44px"></div><span class="bc-lbl">ربيع</span></div>
+            <div class="bc-item"><span class="bc-top">1.02M</span><div class="bc-bar" style="height:54px"></div><span class="bc-lbl">رجب</span></div>
+            <div class="bc-item"><span class="bc-top">1.65M</span><div class="bc-bar" style="height:82px"></div><span class="bc-lbl">شعبان</span></div>
+            <div class="bc-item"><span class="bc-top" style="color:var(--teal)">4.28M</span><div class="bc-bar hi" style="height:160px"></div><span class="bc-lbl">رمضان</span></div>
+            <div class="bc-item"><span class="bc-top">3.91M</span><div class="bc-bar" style="height:146px"></div><span class="bc-lbl">شوال</span></div>
+            <div class="bc-item"><span class="bc-top">1.69M</span><div class="bc-bar" style="height:80px"></div><span class="bc-lbl">ذو القعدة</span></div>
+            <div class="bc-item"><span class="bc-top">1.24M</span><div class="bc-bar" style="height:62px"></div><span class="bc-lbl">ذو الحجة</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div><!-- end page-main -->
+
+  <!-- PAGE: INDICATORS (placeholder) -->
+  <div id="page-indicators" style="display:none; padding:28px;">
+    <div style="background:#fffdf7;border:1px solid var(--border);border-radius:20px;padding:40px;text-align:center;color:var(--muted);">
+      <div style="font-size:48px;margin-bottom:16px;">📊</div>
+      <div style="font-size:20px;font-weight:800;color:var(--teal-dark);">لوحة المؤشرات</div>
+      <div style="margin-top:8px;font-size:14px;">قريباً — سيتم إضافة مؤشرات تفاعلية شاملة</div>
+    </div>
+  </div>
+
+  <!-- PAGE: MODEL -->
+  <div id="page-model" style="display:none; padding:28px;">
+    <div style="background:linear-gradient(135deg,var(--teal-dark),var(--teal));border-radius:20px;padding:28px 32px;margin-bottom:24px;display:flex;align-items:center;gap:20px;">
+      <div style="font-size:48px;">🤖</div>
+      <div>
+        <div style="font-family:'Amiri',serif;font-size:24px;font-weight:700;color:#f0e8cc;">نموذج التنبؤ بمستوى الازدحام</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.65);margin-top:4px;">مبني على بيانات فعلية من 1445–1446 هـ · 708 سجل يومي</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+      <!-- Input Form -->
+      <div style="background:#fffdf7;border:1px solid var(--border);border-radius:20px;padding:28px;">
+        <div style="font-size:16px;font-weight:800;color:var(--teal-dark);margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          📋 أدخل بيانات الزيارة
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <label style="font-size:12px;color:var(--muted);font-weight:700;">الشهر الهجري</label>
+            <select id="model-month" onchange="runModel()" style="border:1px solid var(--border);background:white;border-radius:10px;padding:11px 14px;font-family:Tajawal;font-size:14px;color:var(--ink);">
+              <option value="">اختر الشهر</option>
+              <option>محرم</option><option>صفر</option><option>ربيع الأول</option>
+              <option>ربيع الآخر</option><option>جماد الأول</option><option>جماد الآخر</option>
+              <option>رجب</option><option>شعبان</option><option>رمضان</option>
+              <option>شوال</option><option>ذو القعدة</option><option>ذو الحجة</option>
+            </select>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <label style="font-size:12px;color:var(--muted);font-weight:700;">اليوم</label>
+            <select id="model-day" onchange="runModel()" style="border:1px solid var(--border);background:white;border-radius:10px;padding:11px 14px;font-family:Tajawal;font-size:14px;color:var(--ink);">
+              <option value="">اختر اليوم</option>
+              <option>الأحد</option><option>الاثنين</option><option>الثلاثاء</option>
+              <option>الأربعاء</option><option>الخميس</option><option>الجمعة</option><option>السبت</option>
+            </select>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <label style="font-size:12px;color:var(--muted);font-weight:700;">موسم الحج؟</label>
+            <select id="model-hajj" onchange="runModel()" style="border:1px solid var(--border);background:white;border-radius:10px;padding:11px 14px;font-family:Tajawal;font-size:14px;color:var(--ink);">
+              <option value="0">لا</option>
+              <option value="1">نعم</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Best time tip -->
+        <div id="model-tip" style="display:none;margin-top:20px;background:#eef6f1;border:1px solid #c8ded7;border-radius:12px;padding:14px;font-size:13px;font-weight:700;color:var(--teal-dark);line-height:1.8;"></div>
+      </div>
+
+      <!-- Result -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <!-- Prediction card -->
+        <div id="model-result-card" style="background:#fffdf7;border:1px solid var(--border);border-radius:20px;padding:28px;text-align:center;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div style="font-size:40px;margin-bottom:12px;">🕌</div>
+          <div style="color:var(--muted);font-size:14px;font-weight:600;">اختر الشهر واليوم للحصول على التنبؤ</div>
+        </div>
+
+        <!-- Monthly chart -->
+        <div style="background:#fffdf7;border:1px solid var(--border);border-radius:20px;padding:20px;">
+          <div style="font-size:13px;font-weight:800;color:var(--teal-dark);margin-bottom:14px;">📈 متوسط الزوار الشهري (من البيانات الفعلية)</div>
+          <div id="model-bar-chart" style="display:flex;align-items:flex-end;gap:6px;height:90px;direction:rtl;"></div>
+          <div id="model-bar-labels" style="display:flex;gap:6px;margin-top:6px;direction:rtl;"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Data table -->
+    <div style="background:#fffdf7;border:1px solid var(--border);border-radius:20px;padding:24px;margin-top:20px;">
+      <div style="font-size:14px;font-weight:800;color:var(--teal-dark);margin-bottom:16px;">📊 توزيع مستويات الازدحام حسب الشهر</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:center;">
+          <thead>
+            <tr style="background:var(--teal-dark);color:#f0e8cc;">
+              <th style="padding:10px 12px;border-radius:0;text-align:right;">الشهر</th>
+              <th style="padding:10px 12px;">منخفض</th>
+              <th style="padding:10px 12px;">متوسط</th>
+              <th style="padding:10px 12px;">مرتفع</th>
+              <th style="padding:10px 12px;">حرج</th>
+              <th style="padding:10px 12px;">متوسط الزوار</th>
+              <th style="padding:10px 12px;">أفضل يوم</th>
+            </tr>
+          </thead>
+          <tbody id="model-table-body" style=""></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- end page-model -->
+
+  <div class="footer">
+    ✦ البيانات المتاحة لأغراض البحث العلمي والدراسات فقط — يُمنع استخدامها لأي أغراض تجارية ✦
+  </div>
+
+</main>
+</div>
+</section>
+
+<script>
+const daySelect = document.getElementById("hijriDay");
+const ruleBox = document.getElementById("ruleBox");
+
+function fillHijriDays() {
+  daySelect.innerHTML = '<option value="">اختر اليوم</option>';
+  for (let i = 1; i <= 30; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    daySelect.appendChild(option);
+  }
+}
+
+function updateHijriDayRules() {
+  const nationality = document.getElementById("visitorNationality").value;
+  const month = document.getElementById("hijriMonth").value;
+
+  fillHijriDays();
+
+  if (month === "ذو القعدة") {
+    ruleBox.style.display = "block";
+    if (nationality === "غير سعودي") {
+      for (let option of daySelect.options) {
+        const dayValue = Number(option.value);
+        if (dayValue >= 1 && dayValue <= 15) {
+          option.disabled = true;
+          option.textContent = dayValue + " - غير متاح لغير السعودي";
+        }
+      }
+      ruleBox.className = "rule-box warning";
+      ruleBox.innerHTML = "⚠️ غير السعودي لا يمكنه اختيار الأيام من 1 إلى 15 في شهر ذو القعدة. الرجاء اختيار يوم من 16 إلى 30.";
+    } else if (nationality === "سعودي") {
+      ruleBox.className = "rule-box";
+      ruleBox.innerHTML = "✅ الزائر السعودي يمكنه اختيار أي يوم في شهر ذو القعدة.";
+    } else {
+      ruleBox.className = "rule-box";
+      ruleBox.innerHTML = "✅ إذا كان الزائر سعوديًا يمكنه اختيار أي يوم في شهر ذو القعدة. أما غير السعودي فلا يمكنه اختيار الأيام من 1 إلى 15 في شهر ذو القعدة.";
+    }
+  } else {
+    ruleBox.style.display = "none";
+  }
+}
+
+function validateHijriDayLive() {
+  const nationality = document.getElementById("visitorNationality").value;
+  const month = document.getElementById("hijriMonth").value;
+  const day = Number(document.getElementById("hijriDay").value);
+
+  if (nationality === "غير سعودي" && month === "ذو القعدة" && day >= 1 && day <= 15) {
+    alert("غير السعودي لا يمكنه اختيار الأيام من 1 إلى 15 في شهر ذو القعدة.");
+    document.getElementById("hijriDay").value = "";
+  }
+}
+
+function goToDashboard() {
+  const name = document.getElementById("visitorName").value.trim();
+  const nationality = document.getElementById("visitorNationality").value;
+  const hijriMonth = document.getElementById("hijriMonth").value;
+  const hijriDay = Number(document.getElementById("hijriDay").value);
+
+  if (!name) {
+    alert("الرجاء إدخال الاسم الكامل");
+    return;
+  }
+
+  if (!nationality) {
+    alert("الرجاء اختيار الجنسية");
+    return;
+  }
+
+  if (!hijriMonth) {
+    alert("الرجاء اختيار الشهر الهجري");
+    return;
+  }
+
+  if (!hijriDay) {
+    alert("الرجاء اختيار اليوم الهجري");
+    return;
+  }
+
+  if (nationality === "غير سعودي" && hijriMonth === "ذو القعدة" && hijriDay >= 1 && hijriDay <= 15) {
+    alert("غير السعودي لا يمكنه اختيار الأيام من 1 إلى 15 في شهر ذو القعدة. الرجاء اختيار يوم من 16 إلى 30.");
+    return;
+  }
+
+  document.getElementById("displayName").textContent = name;
+  document.getElementById("displayNationality").textContent = nationality;
+  document.getElementById("displayHijriMonth").textContent = hijriMonth;
+  document.getElementById("displayHijriDay").textContent = hijriDay;
+
+  document.getElementById("introPage").style.display = "none";
+  document.getElementById("dashboardPage").style.display = "block";
+
+  window.scrollTo(0, 0);
+}
+
+function backToIntro() {
+  document.getElementById("dashboardPage").style.display = "none";
+  document.getElementById("introPage").style.display = "flex";
+  window.scrollTo(0, 0);
+}
+
+function clearIntroForm() {
+  document.getElementById("visitorName").value = "";
+  document.getElementById("visitorNationality").value = "";
+  document.getElementById("hijriMonth").value = "";
+  fillHijriDays();
+  ruleBox.style.display = "none";
+}
+
+fillHijriDays();
+
+// ========== PAGE NAVIGATION ==========
+function showPage(name, el) {
+  ['main','indicators','model'].forEach(p => {
+    const el2 = document.getElementById('page-' + p);
+    if (el2) el2.style.display = 'none';
+  });
+  const target = document.getElementById('page-' + name);
+  if (target) target.style.display = 'block';
+
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  if (el) el.classList.add('active');
+
+  if (name === 'model') initModelPage();
+}
+
+// ========== MODEL DATA (from real dataset 1445-1446) ==========
+const modelData = {
+  "محرم":      {"الأحد":{"avg":33228,"level":"Low"},"الأربعاء":{"avg":34260,"level":"Low"},"الاثنين":{"avg":33744,"level":"Low"},"الثلاثاء":{"avg":33744,"level":"Low"},"الجمعة":{"avg":45555,"level":"Medium"},"الخميس":{"avg":42181,"level":"Medium"},"السبت":{"avg":38806,"level":"Medium"}},
+  "صفر":       {"الأحد":{"avg":43968,"level":"Medium"},"الأربعاء":{"avg":43968,"level":"Medium"},"الاثنين":{"avg":42549,"level":"Medium"},"الثلاثاء":{"avg":42549,"level":"Medium"},"الجمعة":{"avg":61272,"level":"Critical"},"الخميس":{"avg":56734,"level":"High"},"السبت":{"avg":50563,"level":"High"}},
+  "ربيع الأول":{"الأحد":{"avg":56092,"level":"High"},"الأربعاء":{"avg":51536,"level":"Medium"},"الاثنين":{"avg":53814,"level":"High"},"الثلاثاء":{"avg":53814,"level":"High"},"الجمعة":{"avg":72648,"level":"Critical"},"الخميس":{"avg":64419,"level":"High"},"السبت":{"avg":64505,"level":"Critical"}},
+  "ربيع الآخر":{"الأحد":{"avg":53362,"level":"High"},"الأربعاء":{"avg":53363,"level":"High"},"الاثنين":{"avg":55015,"level":"High"},"الثلاثاء":{"avg":55015,"level":"High"},"الجمعة":{"avg":69808,"level":"High"},"الخميس":{"avg":66704,"level":"Critical"},"السبت":{"avg":59467,"level":"High"}},
+  "جماد الأول":{"الأحد":{"avg":53046,"level":"High"},"الأربعاء":{"avg":54605,"level":"High"},"الاثنين":{"avg":53757,"level":"High"},"الثلاثاء":{"avg":53757,"level":"High"},"الجمعة":{"avg":72572,"level":"Critical"},"الخميس":{"avg":66237,"level":"Critical"},"السبت":{"avg":61820,"level":"High"}},
+  "جماد الآخر":{"الأحد":{"avg":58318,"level":"High"},"الأربعاء":{"avg":57527,"level":"High"},"الاثنين":{"avg":56539,"level":"High"},"الثلاثاء":{"avg":56540,"level":"High"},"الجمعة":{"avg":79470,"level":"Critical"},"الخميس":{"avg":73583,"level":"Critical"},"السبت":{"avg":67066,"level":"High"}},
+  "رجب":       {"الأحد":{"avg":57647,"level":"Medium"},"الأربعاء":{"avg":57618,"level":"High"},"الاثنين":{"avg":57647,"level":"Medium"},"الثلاثاء":{"avg":57647,"level":"Medium"},"الجمعة":{"avg":77824,"level":"Critical"},"الخميس":{"avg":72022,"level":"Critical"},"السبت":{"avg":66328,"level":"High"}},
+  "شعبان":     {"الأحد":{"avg":60689,"level":"Medium"},"الأربعاء":{"avg":61193,"level":"Medium"},"الاثنين":{"avg":61193,"level":"Medium"},"الثلاثاء":{"avg":61193,"level":"Medium"},"الجمعة":{"avg":83290,"level":"Critical"},"الخميس":{"avg":76491,"level":"High"},"السبت":{"avg":70372,"level":"High"}},
+  "رمضان":     {"الأحد":{"avg":120564,"level":"Critical"},"الأربعاء":{"avg":137692,"level":"Critical"},"الاثنين":{"avg":113641,"level":"Critical"},"الثلاثاء":{"avg":126645,"level":"Critical"},"الجمعة":{"avg":203928,"level":"Critical"},"الخميس":{"avg":184361,"level":"Critical"},"السبت":{"avg":167888,"level":"Critical"}},
+  "شوال":      {"الأحد":{"avg":25086,"level":"Low"},"الأربعاء":{"avg":24895,"level":"Low"},"الاثنين":{"avg":25086,"level":"Low"},"الثلاثاء":{"avg":24990,"level":"Low"},"الجمعة":{"avg":33738,"level":"Low"},"الخميس":{"avg":31238,"level":"Low"},"السبت":{"avg":28739,"level":"Low"}},
+  "ذو القعدة": {"الأحد":{"avg":10323,"level":"Low"},"الأربعاء":{"avg":10323,"level":"Low"},"الاثنين":{"avg":10323,"level":"Low"},"الثلاثاء":{"avg":9176,"level":"Low"},"الجمعة":{"avg":13936,"level":"Low"},"الخميس":{"avg":14337,"level":"Low"},"السبت":{"avg":11871,"level":"Low"}},
+  "ذو الحجة":  {"الأحد":{"avg":4516,"level":"Low"},"الأربعاء":{"avg":4580,"level":"Low"},"الاثنين":{"avg":4515,"level":"Low"},"الثلاثاء":{"avg":4516,"level":"Low"},"الجمعة":{"avg":6009,"level":"Low"},"الخميس":{"avg":5645,"level":"Low"},"السبت":{"avg":5118,"level":"Low"}}
+};
+
+const monthlyAvg = {"محرم":37235,"صفر":48933,"ربيع الأول":59520,"ربيع الآخر":59020,"جماد الأول":59207,"جماد الآخر":64308,"رجب":63896,"شعبان":67920,"رمضان":149931,"شوال":27547,"ذو القعدة":11480,"ذو الحجة":4999};
+const monthsOrder = ["محرم","صفر","ربيع الأول","ربيع الآخر","جماد الأول","جماد الآخر","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة"];
+const levelConfig = {
+  "Low":      {ar:"منخفض",  color:"#22a06b", bg:"#e6f7f0", icon:"🟢"},
+  "Medium":   {ar:"متوسط",  color:"#c49030", bg:"#fdf3dc", icon:"🟡"},
+  "High":     {ar:"مرتفع",  color:"#d97706", bg:"#fff3e0", icon:"🟠"},
+  "Critical": {ar:"حرج",    color:"#c0392b", bg:"#fdecea", icon:"🔴"}
+};
+const bestDayByMonth = {};
+monthsOrder.forEach(m => {
+  const days = modelData[m];
+  let best = null, bestAvg = Infinity;
+  Object.entries(days).forEach(([d, v]) => { if (v.avg < bestAvg) { bestAvg = v.avg; best = d; } });
+  bestDayByMonth[m] = best;
+});
+
+function runModel() {
+  const month = document.getElementById("model-month").value;
+  const day = document.getElementById("model-day").value;
+  const hajj = document.getElementById("model-hajj").value;
+  const card = document.getElementById("model-result-card");
+  const tip = document.getElementById("model-tip");
+
+  if (!month) { card.innerHTML = '<div style="font-size:40px;margin-bottom:12px;">🕌</div><div style="color:var(--muted);font-size:14px;font-weight:600;">اختر الشهر واليوم للحصول على التنبؤ</div>'; tip.style.display='none'; return; }
+
+  const monthDays = modelData[month];
+  let avg, level;
+
+  if (day && monthDays[day]) {
+    avg = monthDays[day].avg;
+    level = monthDays[day].level;
+  } else {
+    // monthly average
+    avg = monthlyAvg[month];
+    const counts = {};
+    Object.values(monthDays).forEach(v => { counts[v.level] = (counts[v.level]||0)+1; });
+    level = Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][0];
+  }
+
+  // Hajj boost
+  if (hajj === "1") { avg = Math.round(avg * 0.1); level = "Low"; }
+
+  const lc = levelConfig[level];
+  const bestDay = bestDayByMonth[month];
+
+  card.innerHTML = `
+    <div style="font-size:52px;margin-bottom:8px;">${lc.icon}</div>
+    <div style="font-size:26px;font-weight:800;color:${lc.color};margin-bottom:4px;">${lc.ar}</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">مستوى الازدحام المتوقع</div>
+    <div style="background:${lc.bg};border:1px solid ${lc.color}40;border-radius:14px;padding:16px 24px;display:inline-block;">
+      <div style="font-size:28px;font-weight:800;color:${lc.color};">${avg.toLocaleString('ar-SA')}</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px;">زائر متوقع</div>
+    </div>
+    ${day ? '' : '<div style="margin-top:10px;font-size:12px;color:var(--muted);">* متوسط الشهر كاملاً</div>'}
+  `;
+
+  tip.style.display = 'block';
+  tip.innerHTML = `💡 <b>أفضل يوم للزيارة في ${month}:</b> ${bestDay} — ${modelData[month][bestDay].avg.toLocaleString('ar-SA')} زائر في المتوسط`;
+}
+
+function initModelPage() {
+  // Draw bar chart
+  const chart = document.getElementById("model-bar-chart");
+  const labels = document.getElementById("model-bar-labels");
+  if (chart.children.length > 0) return; // already init
+
+  const maxVal = Math.max(...Object.values(monthlyAvg));
+  const shortNames = {"محرم":"محرم","صفر":"صفر","ربيع الأول":"ر.أول","ربيع الآخر":"ر.آخر","جماد الأول":"ج.أول","جماد الآخر":"ج.آخر","رجب":"رجب","شعبان":"شعبان","رمضان":"رمضان","شوال":"شوال","ذو القعدة":"ذ.قعدة","ذو الحجة":"ذ.حجة"};
+
+  monthsOrder.forEach(m => {
+    const v = monthlyAvg[m];
+    const h = Math.max(6, Math.round((v / maxVal) * 80));
+    const color = m === "رمضان" ? "var(--teal)" : "var(--teal2)";
+    const bar = document.createElement("div");
+    bar.style.cssText = `flex:1;background:${color};border-radius:4px 4px 0 0;height:${h}px;cursor:default;position:relative;`;
+    bar.title = `${m}: ${v.toLocaleString('ar-SA')}`;
+    chart.appendChild(bar);
+
+    const lbl = document.createElement("div");
+    lbl.style.cssText = "flex:1;font-size:9px;color:var(--muted);text-align:center;font-weight:700;";
+    lbl.textContent = shortNames[m];
+    labels.appendChild(lbl);
+  });
+
+  // Build summary table
+  const tbody = document.getElementById("model-table-body");
+  if (tbody.children.length > 0) return;
+
+  monthsOrder.forEach((m, i) => {
+    const days = modelData[m];
+    const counts = {Low:0,Medium:0,High:0,Critical:0};
+    Object.values(days).forEach(v => counts[v.level]++);
+    const lc = levelConfig[Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][0]];
+    const best = bestDayByMonth[m];
+    const tr = document.createElement("tr");
+    tr.style.cssText = i % 2 === 0 ? "background:#fffdf7;" : "background:white;";
+    tr.innerHTML = `
+      <td style="padding:9px 12px;font-weight:800;color:var(--teal-dark);text-align:right;">${m}</td>
+      <td style="padding:9px 12px;color:#22a06b;">${counts.Low}</td>
+      <td style="padding:9px 12px;color:#c49030;">${counts.Medium}</td>
+      <td style="padding:9px 12px;color:#d97706;">${counts.High}</td>
+      <td style="padding:9px 12px;color:#c0392b;">${counts.Critical}</td>
+      <td style="padding:9px 12px;font-weight:700;">${monthlyAvg[m].toLocaleString('ar-SA')}</td>
+      <td style="padding:9px 12px;color:#22a06b;font-weight:700;">${best}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+</script>
+
+
+<script>
+// ===== XGBoost Model Results =====
+const XGBOOST_DATA = {"results":{"Model":"Growth-Rate XGBoost","MAE":4825.5938,"RMSE":11631.4862,"Mean_Actual_Visitors":50249.3969,"MAE_Percentage":9.6033,"RMSE_Percentage":23.1475,"MAPE":8.6862},"predictions":[{"Hijri_Year":1446,"Hijri_Date":"01-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-07","Weekday_AR":"الأحد","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":3886.0,"Absolute_Error":25214.0,"Percentage_Error":86.65,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-08","Weekday_AR":"الاثنين","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4821.0,"Absolute_Error":24279.0,"Percentage_Error":83.43,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-09","Weekday_AR":"الثلاثاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5096.0,"Absolute_Error":24004.0,"Percentage_Error":82.49,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-10","Weekday_AR":"الأربعاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5242.0,"Absolute_Error":23858.0,"Percentage_Error":81.99,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-11","Weekday_AR":"الخميس","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":36375,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":6597.0,"Absolute_Error":29778.0,"Percentage_Error":81.86,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-12","Weekday_AR":"الجمعة","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":39285,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":7359.0,"Absolute_Error":31926.0,"Percentage_Error":81.27,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-13","Weekday_AR":"السبت","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":33465,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":6082.0,"Absolute_Error":27383.0,"Percentage_Error":81.82,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-14","Weekday_AR":"الأحد","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":39546.0,"Absolute_Error":10446.0,"Percentage_Error":35.9,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-15","Weekday_AR":"الاثنين","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":31444.0,"Absolute_Error":2344.0,"Percentage_Error":8.06,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-16","Weekday_AR":"الثلاثاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":31542.0,"Absolute_Error":2442.0,"Percentage_Error":8.39,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-17","Weekday_AR":"الأربعاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":31987.0,"Absolute_Error":2887.0,"Percentage_Error":9.92,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-18","Weekday_AR":"الخميس","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":36375,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39058.0,"Absolute_Error":2683.0,"Percentage_Error":7.38,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-19","Weekday_AR":"الجمعة","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":39285,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":41437.0,"Absolute_Error":2152.0,"Percentage_Error":5.48,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-20","Weekday_AR":"السبت","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":33465,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":36105.0,"Absolute_Error":2640.0,"Percentage_Error":7.89,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-21","Weekday_AR":"الأحد","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":31195.0,"Absolute_Error":2095.0,"Percentage_Error":7.2,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-22","Weekday_AR":"الاثنين","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29689.0,"Absolute_Error":589.0,"Percentage_Error":2.03,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-23","Weekday_AR":"الثلاثاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29099,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29604.0,"Absolute_Error":505.0,"Percentage_Error":1.73,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-24","Weekday_AR":"الأربعاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29099,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29379.0,"Absolute_Error":280.0,"Percentage_Error":0.96,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-25","Weekday_AR":"الخميس","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":36375,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":36642.0,"Absolute_Error":267.0,"Percentage_Error":0.73,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-26","Weekday_AR":"الجمعة","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":39285,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":38854.0,"Absolute_Error":431.0,"Percentage_Error":1.1,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-27","Weekday_AR":"السبت","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":33465,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34052.0,"Absolute_Error":587.0,"Percentage_Error":1.75,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-28","Weekday_AR":"الأحد","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29330.0,"Absolute_Error":230.0,"Percentage_Error":0.79,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-29","Weekday_AR":"الاثنين","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29099,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29352.0,"Absolute_Error":253.0,"Percentage_Error":0.87,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-30","Weekday_AR":"الثلاثاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29348.0,"Absolute_Error":248.0,"Percentage_Error":0.85,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-07-31","Weekday_AR":"الأربعاء","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29100,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29400.0,"Absolute_Error":300.0,"Percentage_Error":1.03,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-08-01","Weekday_AR":"الخميس","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":36375,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":36713.0,"Absolute_Error":338.0,"Percentage_Error":0.93,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-08-02","Weekday_AR":"الجمعة","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":39285,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":38943.0,"Absolute_Error":342.0,"Percentage_Error":0.87,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-08-03","Weekday_AR":"السبت","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":33465,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34355.0,"Absolute_Error":890.0,"Percentage_Error":2.66,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-01-1446","Hijri_Month":"محرم","Gregorian_Date":"2024-08-04","Weekday_AR":"الأحد","AvgTemp_C":43.3,"Weather_Category":"Hot","المعتمرين":29099,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":29639.0,"Absolute_Error":540.0,"Percentage_Error":1.85,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-05","Weekday_AR":"الاثنين","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":29264.0,"Absolute_Error":1935.0,"Percentage_Error":6.2,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-06","Weekday_AR":"الثلاثاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":29687.0,"Absolute_Error":1512.0,"Percentage_Error":4.85,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-07","Weekday_AR":"الأربعاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":29125.0,"Absolute_Error":2074.0,"Percentage_Error":6.65,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-08","Weekday_AR":"الخميس","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":38999,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":36460.0,"Absolute_Error":2539.0,"Percentage_Error":6.51,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-09","Weekday_AR":"الجمعة","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":42118,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":38643.0,"Absolute_Error":3475.0,"Percentage_Error":8.25,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-10","Weekday_AR":"السبت","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":35879,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34071.0,"Absolute_Error":1808.0,"Percentage_Error":5.04,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-11","Weekday_AR":"الأحد","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":29402.0,"Absolute_Error":1797.0,"Percentage_Error":5.76,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-12","Weekday_AR":"الاثنين","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31605.0,"Absolute_Error":406.0,"Percentage_Error":1.3,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-13","Weekday_AR":"الثلاثاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31219.0,"Absolute_Error":20.0,"Percentage_Error":0.06,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-14","Weekday_AR":"الأربعاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31852.0,"Absolute_Error":653.0,"Percentage_Error":2.09,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-15","Weekday_AR":"الخميس","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":38999,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39919.0,"Absolute_Error":920.0,"Percentage_Error":2.36,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-16","Weekday_AR":"الجمعة","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":42118,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":42455.0,"Absolute_Error":337.0,"Percentage_Error":0.8,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-17","Weekday_AR":"السبت","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":35879,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":37007.0,"Absolute_Error":1128.0,"Percentage_Error":3.14,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-18","Weekday_AR":"الأحد","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31992.0,"Absolute_Error":793.0,"Percentage_Error":2.54,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-19","Weekday_AR":"الاثنين","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":32088.0,"Absolute_Error":889.0,"Percentage_Error":2.85,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-20","Weekday_AR":"الثلاثاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":32049.0,"Absolute_Error":850.0,"Percentage_Error":2.72,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-21","Weekday_AR":"الأربعاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31957.0,"Absolute_Error":758.0,"Percentage_Error":2.43,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-22","Weekday_AR":"الخميس","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":38999,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39947.0,"Absolute_Error":948.0,"Percentage_Error":2.43,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-23","Weekday_AR":"الجمعة","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":42118,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":42216.0,"Absolute_Error":98.0,"Percentage_Error":0.23,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-24","Weekday_AR":"السبت","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":35879,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":36320.0,"Absolute_Error":441.0,"Percentage_Error":1.23,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-25","Weekday_AR":"الأحد","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31609.0,"Absolute_Error":410.0,"Percentage_Error":1.31,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-26","Weekday_AR":"الاثنين","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31671.0,"Absolute_Error":472.0,"Percentage_Error":1.51,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-27","Weekday_AR":"الثلاثاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31631.0,"Absolute_Error":432.0,"Percentage_Error":1.39,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-28","Weekday_AR":"الأربعاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31595.0,"Absolute_Error":396.0,"Percentage_Error":1.27,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-29","Weekday_AR":"الخميس","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":38999,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39494.0,"Absolute_Error":495.0,"Percentage_Error":1.27,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-30","Weekday_AR":"الجمعة","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":42118,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":41882.0,"Absolute_Error":236.0,"Percentage_Error":0.56,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-08-31","Weekday_AR":"السبت","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":35879,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":36330.0,"Absolute_Error":451.0,"Percentage_Error":1.26,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-09-01","Weekday_AR":"الأحد","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31678.0,"Absolute_Error":479.0,"Percentage_Error":1.53,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-09-02","Weekday_AR":"الاثنين","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31760.0,"Absolute_Error":561.0,"Percentage_Error":1.8,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"30-02-1446","Hijri_Month":"صفر","Gregorian_Date":"2024-09-03","Weekday_AR":"الثلاثاء","AvgTemp_C":42.1,"Weather_Category":"Hot","المعتمرين":31199,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31767.0,"Absolute_Error":568.0,"Percentage_Error":1.82,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-04","Weekday_AR":"الأربعاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31688.0,"Absolute_Error":1624.0,"Percentage_Error":4.87,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-05","Weekday_AR":"الخميس","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":41639,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":40017.0,"Absolute_Error":1622.0,"Percentage_Error":3.9,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-06","Weekday_AR":"الجمعة","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":44971,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":42407.0,"Absolute_Error":2564.0,"Percentage_Error":5.7,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-07","Weekday_AR":"السبت","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":38308,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":36578.0,"Absolute_Error":1730.0,"Percentage_Error":4.51,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-08","Weekday_AR":"الأحد","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31582.0,"Absolute_Error":1730.0,"Percentage_Error":5.19,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-09","Weekday_AR":"الاثنين","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31610.0,"Absolute_Error":1702.0,"Percentage_Error":5.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-10","Weekday_AR":"الثلاثاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31532.0,"Absolute_Error":1780.0,"Percentage_Error":5.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-11","Weekday_AR":"الأربعاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":33576.0,"Absolute_Error":264.0,"Percentage_Error":0.79,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-12","Weekday_AR":"الخميس","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":41639,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":41536.0,"Absolute_Error":103.0,"Percentage_Error":0.25,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-13","Weekday_AR":"الجمعة","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":44971,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43880.0,"Absolute_Error":1091.0,"Percentage_Error":2.43,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-14","Weekday_AR":"السبت","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":38308,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39332.0,"Absolute_Error":1024.0,"Percentage_Error":2.67,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-15","Weekday_AR":"الأحد","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34144.0,"Absolute_Error":832.0,"Percentage_Error":2.5,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-16","Weekday_AR":"الاثنين","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34371.0,"Absolute_Error":1059.0,"Percentage_Error":3.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-17","Weekday_AR":"الثلاثاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34399.0,"Absolute_Error":1087.0,"Percentage_Error":3.26,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-18","Weekday_AR":"الأربعاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33312,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34210.0,"Absolute_Error":898.0,"Percentage_Error":2.7,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-19","Weekday_AR":"الخميس","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":41639,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":42761.0,"Absolute_Error":1122.0,"Percentage_Error":2.7,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-20","Weekday_AR":"الجمعة","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":44970,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":45312.0,"Absolute_Error":342.0,"Percentage_Error":0.76,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-21","Weekday_AR":"السبت","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":38308,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39116.0,"Absolute_Error":808.0,"Percentage_Error":2.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-22","Weekday_AR":"الأحد","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34111.0,"Absolute_Error":800.0,"Percentage_Error":2.4,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-23","Weekday_AR":"الاثنين","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34070.0,"Absolute_Error":759.0,"Percentage_Error":2.28,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-24","Weekday_AR":"الثلاثاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":33707.0,"Absolute_Error":396.0,"Percentage_Error":1.19,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-25","Weekday_AR":"الأربعاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":33673.0,"Absolute_Error":362.0,"Percentage_Error":1.09,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-26","Weekday_AR":"الخميس","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":41639,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":42091.0,"Absolute_Error":452.0,"Percentage_Error":1.08,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-27","Weekday_AR":"الجمعة","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":44970,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44725.0,"Absolute_Error":245.0,"Percentage_Error":0.54,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-28","Weekday_AR":"السبت","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":38308,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":38774.0,"Absolute_Error":466.0,"Percentage_Error":1.22,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-29","Weekday_AR":"الأحد","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":33724.0,"Absolute_Error":413.0,"Percentage_Error":1.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-09-30","Weekday_AR":"الاثنين","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":33776.0,"Absolute_Error":465.0,"Percentage_Error":1.39,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-10-01","Weekday_AR":"الثلاثاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":33915.0,"Absolute_Error":604.0,"Percentage_Error":1.81,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-10-02","Weekday_AR":"الأربعاء","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":33311,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":33820.0,"Absolute_Error":509.0,"Percentage_Error":1.53,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"30-03-1446","Hijri_Month":"ربيع الأول","Gregorian_Date":"2024-10-03","Weekday_AR":"الخميس","AvgTemp_C":42.8,"Weather_Category":"Hot","المعتمرين":41639,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":42275.0,"Absolute_Error":636.0,"Percentage_Error":1.53,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-04","Weekday_AR":"الجمعة","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":51958,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44589.0,"Absolute_Error":7369.0,"Percentage_Error":14.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-05","Weekday_AR":"السبت","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":44261,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":40131.0,"Absolute_Error":4130.0,"Percentage_Error":9.33,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-06","Weekday_AR":"الأحد","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":35301.0,"Absolute_Error":3187.0,"Percentage_Error":8.28,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-07","Weekday_AR":"الاثنين","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34879.0,"Absolute_Error":3609.0,"Percentage_Error":9.38,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-08","Weekday_AR":"الثلاثاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34844.0,"Absolute_Error":3644.0,"Percentage_Error":9.47,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-09","Weekday_AR":"الأربعاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34938.0,"Absolute_Error":3550.0,"Percentage_Error":9.22,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-10","Weekday_AR":"الخميس","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":48109,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43669.0,"Absolute_Error":4440.0,"Percentage_Error":9.23,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-11","Weekday_AR":"الجمعة","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":51958,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":53912.0,"Absolute_Error":1954.0,"Percentage_Error":3.76,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-12","Weekday_AR":"السبت","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":44261,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44702.0,"Absolute_Error":441.0,"Percentage_Error":1.0,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-13","Weekday_AR":"الأحد","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":38532.0,"Absolute_Error":44.0,"Percentage_Error":0.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-14","Weekday_AR":"الاثنين","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39485.0,"Absolute_Error":997.0,"Percentage_Error":2.59,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-15","Weekday_AR":"الثلاثاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39349.0,"Absolute_Error":861.0,"Percentage_Error":2.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-16","Weekday_AR":"الأربعاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39597.0,"Absolute_Error":1109.0,"Percentage_Error":2.88,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-17","Weekday_AR":"الخميس","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":48109,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49595.0,"Absolute_Error":1486.0,"Percentage_Error":3.09,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-18","Weekday_AR":"الجمعة","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":51958,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":52919.0,"Absolute_Error":961.0,"Percentage_Error":1.85,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-19","Weekday_AR":"السبت","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":44261,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":45251.0,"Absolute_Error":990.0,"Percentage_Error":2.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-20","Weekday_AR":"الأحد","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38487,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39415.0,"Absolute_Error":928.0,"Percentage_Error":2.41,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-21","Weekday_AR":"الاثنين","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38487,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39416.0,"Absolute_Error":929.0,"Percentage_Error":2.41,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-22","Weekday_AR":"الثلاثاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38487,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39365.0,"Absolute_Error":878.0,"Percentage_Error":2.28,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-23","Weekday_AR":"الأربعاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39274.0,"Absolute_Error":786.0,"Percentage_Error":2.04,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-24","Weekday_AR":"الخميس","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":48109,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":48704.0,"Absolute_Error":595.0,"Percentage_Error":1.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-25","Weekday_AR":"الجمعة","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":51958,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":51658.0,"Absolute_Error":300.0,"Percentage_Error":0.58,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-26","Weekday_AR":"السبت","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":44261,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44785.0,"Absolute_Error":524.0,"Percentage_Error":1.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-27","Weekday_AR":"الأحد","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":38967.0,"Absolute_Error":479.0,"Percentage_Error":1.25,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-28","Weekday_AR":"الاثنين","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39082.0,"Absolute_Error":594.0,"Percentage_Error":1.54,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-29","Weekday_AR":"الثلاثاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39031.0,"Absolute_Error":543.0,"Percentage_Error":1.41,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-30","Weekday_AR":"الأربعاء","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":38488,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":39007.0,"Absolute_Error":519.0,"Percentage_Error":1.35,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-10-31","Weekday_AR":"الخميس","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":48109,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":48668.0,"Absolute_Error":559.0,"Percentage_Error":1.16,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-11-01","Weekday_AR":"الجمعة","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":51958,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":51517.0,"Absolute_Error":441.0,"Percentage_Error":0.85,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"30-04-1446","Hijri_Month":"ربيع الآخر","Gregorian_Date":"2024-11-02","Weekday_AR":"السبت","AvgTemp_C":41.1,"Weather_Category":"Hot","المعتمرين":44261,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44862.0,"Absolute_Error":601.0,"Percentage_Error":1.36,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-03","Weekday_AR":"الأحد","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43056,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":39050.0,"Absolute_Error":4006.0,"Percentage_Error":9.3,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-04","Weekday_AR":"الاثنين","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":41036.0,"Absolute_Error":2019.0,"Percentage_Error":4.69,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-05","Weekday_AR":"الثلاثاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43056,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":40947.0,"Absolute_Error":2109.0,"Percentage_Error":4.9,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-06","Weekday_AR":"الأربعاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43056,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":40904.0,"Absolute_Error":2152.0,"Percentage_Error":5.0,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-07","Weekday_AR":"الخميس","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":53819,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":50290.0,"Absolute_Error":3529.0,"Percentage_Error":6.56,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-08","Weekday_AR":"الجمعة","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":58125,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":53123.0,"Absolute_Error":5002.0,"Percentage_Error":8.61,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-09","Weekday_AR":"السبت","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":49514,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":47049.0,"Absolute_Error":2465.0,"Percentage_Error":4.98,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-10","Weekday_AR":"الأحد","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43056,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":45312.0,"Absolute_Error":2256.0,"Percentage_Error":5.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-11","Weekday_AR":"الاثنين","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43056,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43449.0,"Absolute_Error":393.0,"Percentage_Error":0.91,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-12","Weekday_AR":"الثلاثاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43056,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43314.0,"Absolute_Error":258.0,"Percentage_Error":0.6,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-13","Weekday_AR":"الأربعاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43056,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43157.0,"Absolute_Error":101.0,"Percentage_Error":0.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-14","Weekday_AR":"الخميس","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":53819,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":55198.0,"Absolute_Error":1379.0,"Percentage_Error":2.56,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-15","Weekday_AR":"الجمعة","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":58125,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":58229.0,"Absolute_Error":104.0,"Percentage_Error":0.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-16","Weekday_AR":"السبت","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":49514,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":51757.0,"Absolute_Error":2243.0,"Percentage_Error":4.53,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-17","Weekday_AR":"الأحد","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44430.0,"Absolute_Error":1375.0,"Percentage_Error":3.19,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-18","Weekday_AR":"الاثنين","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44162.0,"Absolute_Error":1107.0,"Percentage_Error":2.57,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-19","Weekday_AR":"الثلاثاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44062.0,"Absolute_Error":1007.0,"Percentage_Error":2.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-20","Weekday_AR":"الأربعاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":44030.0,"Absolute_Error":975.0,"Percentage_Error":2.26,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-21","Weekday_AR":"الخميس","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":53819,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":55009.0,"Absolute_Error":1190.0,"Percentage_Error":2.21,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-22","Weekday_AR":"الجمعة","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":58125,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":58230.0,"Absolute_Error":105.0,"Percentage_Error":0.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-23","Weekday_AR":"السبت","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":49514,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":50682.0,"Absolute_Error":1168.0,"Percentage_Error":2.36,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-24","Weekday_AR":"الأحد","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43633.0,"Absolute_Error":578.0,"Percentage_Error":1.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-25","Weekday_AR":"الاثنين","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43688.0,"Absolute_Error":633.0,"Percentage_Error":1.47,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-26","Weekday_AR":"الثلاثاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43587.0,"Absolute_Error":532.0,"Percentage_Error":1.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-27","Weekday_AR":"الأربعاء","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":43055,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43556.0,"Absolute_Error":501.0,"Percentage_Error":1.16,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-28","Weekday_AR":"الخميس","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":53819,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":54445.0,"Absolute_Error":626.0,"Percentage_Error":1.16,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-29","Weekday_AR":"الجمعة","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":58125,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":57647.0,"Absolute_Error":478.0,"Percentage_Error":0.82,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-11-30","Weekday_AR":"السبت","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":49514,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":50250.0,"Absolute_Error":736.0,"Percentage_Error":1.49,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-05-1446","Hijri_Month":"جماد الأول","Gregorian_Date":"2024-12-01","Weekday_AR":"الأحد","AvgTemp_C":36.4,"Weather_Category":"Hot","المعتمرين":47361,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":43758.0,"Absolute_Error":3603.0,"Percentage_Error":7.61,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-02","Weekday_AR":"الاثنين","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":45926.0,"Absolute_Error":2711.0,"Percentage_Error":5.57,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-03","Weekday_AR":"الثلاثاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":45762.0,"Absolute_Error":2875.0,"Percentage_Error":5.91,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-04","Weekday_AR":"الأربعاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":45742.0,"Absolute_Error":2895.0,"Percentage_Error":5.95,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-05","Weekday_AR":"الخميس","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":60795,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":57198.0,"Absolute_Error":3597.0,"Percentage_Error":5.92,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-06","Weekday_AR":"الجمعة","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":65659,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":61139.0,"Absolute_Error":4520.0,"Percentage_Error":6.88,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-07","Weekday_AR":"السبت","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":55932,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":52396.0,"Absolute_Error":3536.0,"Percentage_Error":6.32,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-08","Weekday_AR":"الأحد","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":50261.0,"Absolute_Error":1624.0,"Percentage_Error":3.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-09","Weekday_AR":"الاثنين","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49189.0,"Absolute_Error":552.0,"Percentage_Error":1.14,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-10","Weekday_AR":"الثلاثاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":48873.0,"Absolute_Error":236.0,"Percentage_Error":0.49,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-11","Weekday_AR":"الأربعاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":48714.0,"Absolute_Error":77.0,"Percentage_Error":0.16,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-12","Weekday_AR":"الخميس","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":60795,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":60947.0,"Absolute_Error":152.0,"Percentage_Error":0.25,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-13","Weekday_AR":"الجمعة","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":65659,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65571.0,"Absolute_Error":88.0,"Percentage_Error":0.13,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-14","Weekday_AR":"السبت","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":55932,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57916.0,"Absolute_Error":1984.0,"Percentage_Error":3.55,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-15","Weekday_AR":"الأحد","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":50481.0,"Absolute_Error":1844.0,"Percentage_Error":3.79,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-16","Weekday_AR":"الاثنين","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49965.0,"Absolute_Error":1328.0,"Percentage_Error":2.73,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-17","Weekday_AR":"الثلاثاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49841.0,"Absolute_Error":1204.0,"Percentage_Error":2.48,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-18","Weekday_AR":"الأربعاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49633.0,"Absolute_Error":996.0,"Percentage_Error":2.05,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-19","Weekday_AR":"الخميس","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":60795,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":61915.0,"Absolute_Error":1120.0,"Percentage_Error":1.84,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-20","Weekday_AR":"الجمعة","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":65659,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65997.0,"Absolute_Error":338.0,"Percentage_Error":0.51,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-21","Weekday_AR":"السبت","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":55932,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57189.0,"Absolute_Error":1257.0,"Percentage_Error":2.25,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-22","Weekday_AR":"الأحد","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48636,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49798.0,"Absolute_Error":1162.0,"Percentage_Error":2.39,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-23","Weekday_AR":"الاثنين","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49621.0,"Absolute_Error":984.0,"Percentage_Error":2.02,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-24","Weekday_AR":"الثلاثاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48636,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49116.0,"Absolute_Error":480.0,"Percentage_Error":0.99,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-25","Weekday_AR":"الأربعاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48636,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49046.0,"Absolute_Error":410.0,"Percentage_Error":0.84,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-26","Weekday_AR":"الخميس","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":60795,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":61111.0,"Absolute_Error":316.0,"Percentage_Error":0.52,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-27","Weekday_AR":"الجمعة","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":65659,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65364.0,"Absolute_Error":295.0,"Percentage_Error":0.45,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-28","Weekday_AR":"السبت","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":55932,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":56628.0,"Absolute_Error":696.0,"Percentage_Error":1.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-29","Weekday_AR":"الأحد","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49233.0,"Absolute_Error":596.0,"Percentage_Error":1.22,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-30","Weekday_AR":"الاثنين","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49283.0,"Absolute_Error":646.0,"Percentage_Error":1.33,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"30-06-1446","Hijri_Month":"جماد الآخر","Gregorian_Date":"2024-12-31","Weekday_AR":"الثلاثاء","AvgTemp_C":33.3,"Weather_Category":"Warm","المعتمرين":48637,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":49131.0,"Absolute_Error":494.0,"Percentage_Error":1.02,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-01","Weekday_AR":"الأربعاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":47627.0,"Absolute_Error":9758.0,"Percentage_Error":17.0,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-02","Weekday_AR":"الخميس","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":71731,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":62248.0,"Absolute_Error":9483.0,"Percentage_Error":13.22,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-03","Weekday_AR":"الجمعة","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":77469,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":67921.0,"Absolute_Error":9548.0,"Percentage_Error":12.32,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-04","Weekday_AR":"السبت","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":65993,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":59295.0,"Absolute_Error":6698.0,"Percentage_Error":10.15,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-05","Weekday_AR":"الأحد","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":53292.0,"Absolute_Error":4093.0,"Percentage_Error":7.13,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-06","Weekday_AR":"الاثنين","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":52623.0,"Absolute_Error":4762.0,"Percentage_Error":8.3,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-07","Weekday_AR":"الثلاثاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":51243.0,"Absolute_Error":6142.0,"Percentage_Error":10.7,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-08","Weekday_AR":"الأربعاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":60116.0,"Absolute_Error":2731.0,"Percentage_Error":4.76,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-09","Weekday_AR":"الخميس","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":71731,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":70860.0,"Absolute_Error":871.0,"Percentage_Error":1.21,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-10","Weekday_AR":"الجمعة","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":77469,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":76026.0,"Absolute_Error":1443.0,"Percentage_Error":1.86,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-11","Weekday_AR":"السبت","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":65993,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":64756.0,"Absolute_Error":1237.0,"Percentage_Error":1.87,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-12","Weekday_AR":"الأحد","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57410.0,"Absolute_Error":25.0,"Percentage_Error":0.04,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-13","Weekday_AR":"الاثنين","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57497.0,"Absolute_Error":112.0,"Percentage_Error":0.2,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-14","Weekday_AR":"الثلاثاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":58152.0,"Absolute_Error":767.0,"Percentage_Error":1.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-15","Weekday_AR":"الأربعاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":58235.0,"Absolute_Error":850.0,"Percentage_Error":1.48,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-16","Weekday_AR":"الخميس","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":71731,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":71475.0,"Absolute_Error":256.0,"Percentage_Error":0.36,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-17","Weekday_AR":"الجمعة","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":77469,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":77489.0,"Absolute_Error":20.0,"Percentage_Error":0.03,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-18","Weekday_AR":"السبت","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":65992,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66197.0,"Absolute_Error":205.0,"Percentage_Error":0.31,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-19","Weekday_AR":"الأحد","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":58069.0,"Absolute_Error":684.0,"Percentage_Error":1.19,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-20","Weekday_AR":"الاثنين","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57944.0,"Absolute_Error":559.0,"Percentage_Error":0.97,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-21","Weekday_AR":"الثلاثاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57824.0,"Absolute_Error":439.0,"Percentage_Error":0.76,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-22","Weekday_AR":"الأربعاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57868.0,"Absolute_Error":483.0,"Percentage_Error":0.84,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-23","Weekday_AR":"الخميس","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":71731,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":71506.0,"Absolute_Error":225.0,"Percentage_Error":0.31,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-24","Weekday_AR":"الجمعة","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":77469,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":77358.0,"Absolute_Error":111.0,"Percentage_Error":0.14,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-25","Weekday_AR":"السبت","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":65993,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65874.0,"Absolute_Error":119.0,"Percentage_Error":0.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-26","Weekday_AR":"الأحد","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57918.0,"Absolute_Error":533.0,"Percentage_Error":0.93,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-27","Weekday_AR":"الاثنين","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57668.0,"Absolute_Error":283.0,"Percentage_Error":0.49,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-28","Weekday_AR":"الثلاثاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57446.0,"Absolute_Error":61.0,"Percentage_Error":0.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-29","Weekday_AR":"الأربعاء","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":57385,"Crowding_Level":"High","Season_Type":"Normal Days","Prediction":57450.0,"Absolute_Error":65.0,"Percentage_Error":0.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"30-07-1446","Hijri_Month":"رجب","Gregorian_Date":"2025-01-30","Weekday_AR":"الخميس","AvgTemp_C":30.4,"Weather_Category":"Warm","المعتمرين":71731,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":71599.0,"Absolute_Error":132.0,"Percentage_Error":0.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-01-31","Weekday_AR":"الجمعة","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":88724,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":77195.0,"Absolute_Error":11529.0,"Percentage_Error":12.99,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-01","Weekday_AR":"السبت","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":75580,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":70689.0,"Absolute_Error":4891.0,"Percentage_Error":6.47,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-02","Weekday_AR":"الأحد","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":63003.0,"Absolute_Error":2718.0,"Percentage_Error":4.14,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-03","Weekday_AR":"الاثنين","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":62217.0,"Absolute_Error":3504.0,"Percentage_Error":5.33,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-04","Weekday_AR":"الثلاثاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":61906.0,"Absolute_Error":3815.0,"Percentage_Error":5.81,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-05","Weekday_AR":"الأربعاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":61293.0,"Absolute_Error":4428.0,"Percentage_Error":6.74,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-06","Weekday_AR":"الخميس","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":82152,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":75284.0,"Absolute_Error":6868.0,"Percentage_Error":8.36,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-07","Weekday_AR":"الجمعة","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":88724,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":90523.0,"Absolute_Error":1799.0,"Percentage_Error":2.03,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-08","Weekday_AR":"السبت","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":75580,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":73665.0,"Absolute_Error":1915.0,"Percentage_Error":2.53,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-09","Weekday_AR":"الأحد","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65668.0,"Absolute_Error":53.0,"Percentage_Error":0.08,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-10","Weekday_AR":"الاثنين","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66345.0,"Absolute_Error":624.0,"Percentage_Error":0.95,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-11","Weekday_AR":"الثلاثاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65722,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65869.0,"Absolute_Error":147.0,"Percentage_Error":0.22,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-12","Weekday_AR":"الأربعاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65422.0,"Absolute_Error":299.0,"Percentage_Error":0.46,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-13","Weekday_AR":"الخميس","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":82152,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":81767.0,"Absolute_Error":385.0,"Percentage_Error":0.47,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-14","Weekday_AR":"الجمعة","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":88724,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":88979.0,"Absolute_Error":255.0,"Percentage_Error":0.29,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-15","Weekday_AR":"السبت","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":75580,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":74957.0,"Absolute_Error":623.0,"Percentage_Error":0.82,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-16","Weekday_AR":"الأحد","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66475.0,"Absolute_Error":754.0,"Percentage_Error":1.15,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-17","Weekday_AR":"الاثنين","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66726.0,"Absolute_Error":1005.0,"Percentage_Error":1.53,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-18","Weekday_AR":"الثلاثاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66087.0,"Absolute_Error":366.0,"Percentage_Error":0.56,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-19","Weekday_AR":"الأربعاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66211.0,"Absolute_Error":490.0,"Percentage_Error":0.75,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-20","Weekday_AR":"الخميس","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":82152,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":81727.0,"Absolute_Error":425.0,"Percentage_Error":0.52,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-21","Weekday_AR":"الجمعة","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":88724,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":87813.0,"Absolute_Error":911.0,"Percentage_Error":1.03,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-22","Weekday_AR":"السبت","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":75580,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":75117.0,"Absolute_Error":463.0,"Percentage_Error":0.61,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-23","Weekday_AR":"الأحد","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66273.0,"Absolute_Error":552.0,"Percentage_Error":0.84,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-24","Weekday_AR":"الاثنين","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":66017.0,"Absolute_Error":296.0,"Percentage_Error":0.45,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-25","Weekday_AR":"الثلاثاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65652.0,"Absolute_Error":69.0,"Percentage_Error":0.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-26","Weekday_AR":"الأربعاء","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":65721,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":65794.0,"Absolute_Error":73.0,"Percentage_Error":0.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-27","Weekday_AR":"الخميس","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":82152,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":81774.0,"Absolute_Error":378.0,"Percentage_Error":0.46,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-08-1446","Hijri_Month":"شعبان","Gregorian_Date":"2025-02-28","Weekday_AR":"الجمعة","AvgTemp_C":31.9,"Weather_Category":"Warm","المعتمرين":88724,"Crowding_Level":"Critical","Season_Type":"Normal Days","Prediction":88510.0,"Absolute_Error":214.0,"Percentage_Error":0.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-01","Weekday_AR":"السبت","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":156578,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":101489.0,"Absolute_Error":55089.0,"Percentage_Error":35.18,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-02","Weekday_AR":"الأحد","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":113283,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":154618.0,"Absolute_Error":41335.0,"Percentage_Error":36.49,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-03","Weekday_AR":"الاثنين","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":122078,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":149596.0,"Absolute_Error":27518.0,"Percentage_Error":22.54,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-04","Weekday_AR":"الثلاثاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":130326,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":156838.0,"Absolute_Error":26512.0,"Percentage_Error":20.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-05","Weekday_AR":"الأربعاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":145131,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":157295.0,"Absolute_Error":12164.0,"Percentage_Error":8.38,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-06","Weekday_AR":"الخميس","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":181144,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":177679.0,"Absolute_Error":3465.0,"Percentage_Error":1.91,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-07","Weekday_AR":"الجمعة","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":217314,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":163670.0,"Absolute_Error":53644.0,"Percentage_Error":24.68,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-08","Weekday_AR":"السبت","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":171123,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":235180.0,"Absolute_Error":64057.0,"Percentage_Error":37.43,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-09","Weekday_AR":"الأحد","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":99436,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":136249.0,"Absolute_Error":36813.0,"Percentage_Error":37.02,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-10","Weekday_AR":"الاثنين","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":106922,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":103354.0,"Absolute_Error":3568.0,"Percentage_Error":3.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-11","Weekday_AR":"الثلاثاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":108095,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":119015.0,"Absolute_Error":10920.0,"Percentage_Error":10.1,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-12","Weekday_AR":"الأربعاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":119024,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":130172.0,"Absolute_Error":11148.0,"Percentage_Error":9.37,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-13","Weekday_AR":"الخميس","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":167779,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":160614.0,"Absolute_Error":7165.0,"Percentage_Error":4.27,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-14","Weekday_AR":"الجمعة","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":216116,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":169298.0,"Absolute_Error":46818.0,"Percentage_Error":21.66,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-15","Weekday_AR":"السبت","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":160563,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":193740.0,"Absolute_Error":33177.0,"Percentage_Error":20.66,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-16","Weekday_AR":"الأحد","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":99275,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":78870.0,"Absolute_Error":20405.0,"Percentage_Error":20.55,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-17","Weekday_AR":"الاثنين","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":104923,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":113619.0,"Absolute_Error":8696.0,"Percentage_Error":8.29,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-18","Weekday_AR":"الثلاثاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":107864,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":119079.0,"Absolute_Error":11215.0,"Percentage_Error":10.4,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-19","Weekday_AR":"الأربعاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":115171,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":131668.0,"Absolute_Error":16497.0,"Percentage_Error":14.32,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-20","Weekday_AR":"الخميس","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":178324,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":165910.0,"Absolute_Error":12414.0,"Percentage_Error":6.96,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-21","Weekday_AR":"الجمعة","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":166475,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":203471.0,"Absolute_Error":36996.0,"Percentage_Error":22.22,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-22","Weekday_AR":"السبت","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":129009,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":118415.0,"Absolute_Error":10594.0,"Percentage_Error":8.21,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-23","Weekday_AR":"الأحد","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":98652,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":84915.0,"Absolute_Error":13737.0,"Percentage_Error":13.92,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-24","Weekday_AR":"الاثنين","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":95487,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":117888.0,"Absolute_Error":22401.0,"Percentage_Error":23.46,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-25","Weekday_AR":"الثلاثاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":101277,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":103348.0,"Absolute_Error":2071.0,"Percentage_Error":2.05,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-26","Weekday_AR":"الأربعاء","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":122747,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":142133.0,"Absolute_Error":19386.0,"Percentage_Error":15.79,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-27","Weekday_AR":"الخميس","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":151158,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":223957.0,"Absolute_Error":72799.0,"Percentage_Error":48.16,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-28","Weekday_AR":"الجمعة","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":160310,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":161696.0,"Absolute_Error":1386.0,"Percentage_Error":0.86,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-09-1446","Hijri_Month":"رمضان","Gregorian_Date":"2025-03-29","Weekday_AR":"السبت","AvgTemp_C":36.3,"Weather_Category":"Hot","المعتمرين":129876,"Crowding_Level":"Critical","Season_Type":"Peak Season - Ramadan","Prediction":161982.0,"Absolute_Error":32106.0,"Percentage_Error":24.72,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-03-30","Weekday_AR":"الأحد","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":94226.0,"Absolute_Error":68376.0,"Percentage_Error":264.51,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-03-31","Weekday_AR":"الاثنين","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":42369.0,"Absolute_Error":16519.0,"Percentage_Error":63.9,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-01","Weekday_AR":"الثلاثاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":39194.0,"Absolute_Error":13344.0,"Percentage_Error":51.62,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-02","Weekday_AR":"الأربعاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":48251.0,"Absolute_Error":22401.0,"Percentage_Error":86.66,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-03","Weekday_AR":"الخميس","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":32313,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":54891.0,"Absolute_Error":22578.0,"Percentage_Error":69.87,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-04","Weekday_AR":"الجمعة","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":34899,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":59509.0,"Absolute_Error":24610.0,"Percentage_Error":70.52,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-05","Weekday_AR":"السبت","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":29729,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":57791.0,"Absolute_Error":28062.0,"Percentage_Error":94.39,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-06","Weekday_AR":"الأحد","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":13745.0,"Absolute_Error":12105.0,"Percentage_Error":46.83,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-07","Weekday_AR":"الاثنين","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":25038.0,"Absolute_Error":812.0,"Percentage_Error":3.14,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-08","Weekday_AR":"الثلاثاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":24989.0,"Absolute_Error":861.0,"Percentage_Error":3.33,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"11-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-09","Weekday_AR":"الأربعاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":25212.0,"Absolute_Error":638.0,"Percentage_Error":2.47,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"12-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-10","Weekday_AR":"الخميس","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":32313,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":31045.0,"Absolute_Error":1268.0,"Percentage_Error":3.92,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"13-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-11","Weekday_AR":"الجمعة","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":34899,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":32399.0,"Absolute_Error":2500.0,"Percentage_Error":7.16,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"14-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-12","Weekday_AR":"السبت","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":29729,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":27919.0,"Absolute_Error":1810.0,"Percentage_Error":6.09,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"15-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-13","Weekday_AR":"الأحد","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":23456.0,"Absolute_Error":2394.0,"Percentage_Error":9.26,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"16-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-14","Weekday_AR":"الاثنين","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":26044.0,"Absolute_Error":194.0,"Percentage_Error":0.75,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"17-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-15","Weekday_AR":"الثلاثاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":25961.0,"Absolute_Error":111.0,"Percentage_Error":0.43,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"18-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-16","Weekday_AR":"الأربعاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":26240.0,"Absolute_Error":390.0,"Percentage_Error":1.51,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"19-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-17","Weekday_AR":"الخميس","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":32313,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":32807.0,"Absolute_Error":494.0,"Percentage_Error":1.53,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"20-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-18","Weekday_AR":"الجمعة","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":34899,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34630.0,"Absolute_Error":269.0,"Percentage_Error":0.77,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"21-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-19","Weekday_AR":"السبت","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":29729,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":29971.0,"Absolute_Error":242.0,"Percentage_Error":0.81,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"22-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-20","Weekday_AR":"الأحد","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":26239.0,"Absolute_Error":389.0,"Percentage_Error":1.51,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"23-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-21","Weekday_AR":"الاثنين","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":26256.0,"Absolute_Error":406.0,"Percentage_Error":1.57,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"24-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-22","Weekday_AR":"الثلاثاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":26203.0,"Absolute_Error":353.0,"Percentage_Error":1.37,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"25-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-23","Weekday_AR":"الأربعاء","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":26195.0,"Absolute_Error":345.0,"Percentage_Error":1.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"26-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-24","Weekday_AR":"الخميس","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":32313,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":32316.0,"Absolute_Error":3.0,"Percentage_Error":0.01,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"27-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-25","Weekday_AR":"الجمعة","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":34899,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":34400.0,"Absolute_Error":499.0,"Percentage_Error":1.43,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"28-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-26","Weekday_AR":"السبت","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":29729,"Crowding_Level":"Medium","Season_Type":"Normal Days","Prediction":29746.0,"Absolute_Error":17.0,"Percentage_Error":0.06,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"29-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-27","Weekday_AR":"الأحد","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":26030.0,"Absolute_Error":180.0,"Percentage_Error":0.7,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"30-10-1446","Hijri_Month":"شوال","Gregorian_Date":"2025-04-28","Weekday_AR":"الاثنين","AvgTemp_C":39.9,"Weather_Category":"Hot","المعتمرين":25850,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":25977.0,"Absolute_Error":127.0,"Percentage_Error":0.49,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"01-11-1446","Hijri_Month":"ذو القعدة","Gregorian_Date":"2025-04-29","Weekday_AR":"الثلاثاء","AvgTemp_C":43.0,"Weather_Category":"Hot","المعتمرين":0,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":25638.0,"Absolute_Error":25638.0,"Percentage_Error":0.0,"Hajj_Count_For_Recommendation":12956,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"02-11-1446","Hijri_Month":"ذو القعدة","Gregorian_Date":"2025-04-30","Weekday_AR":"الأربعاء","AvgTemp_C":43.0,"Weather_Category":"Hot","المعتمرين":0,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":12931.0,"Absolute_Error":12931.0,"Percentage_Error":0.0,"Hajj_Count_For_Recommendation":15292,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"03-11-1446","Hijri_Month":"ذو القعدة","Gregorian_Date":"2025-05-01","Weekday_AR":"الخميس","AvgTemp_C":43.0,"Weather_Category":"Hot","المعتمرين":0,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":15381.0,"Absolute_Error":15381.0,"Percentage_Error":0.0,"Hajj_Count_For_Recommendation":15449,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"04-11-1446","Hijri_Month":"ذو القعدة","Gregorian_Date":"2025-05-02","Weekday_AR":"الجمعة","AvgTemp_C":43.0,"Weather_Category":"Hot","المعتمرين":0,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":15812.0,"Absolute_Error":15812.0,"Percentage_Error":0.0,"Hajj_Count_For_Recommendation":23314,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"05-11-1446","Hijri_Month":"ذو القعدة","Gregorian_Date":"2025-05-03","Weekday_AR":"السبت","AvgTemp_C":43.0,"Weather_Category":"Hot","المعتمرين":0,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":13195.0,"Absolute_Error":13195.0,"Percentage_Error":0.0,"Hajj_Count_For_Recommendation":21849,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"06-11-1446","Hijri_Month":"ذو القعدة","Gregorian_Date":"2025-05-04","Weekday_AR":"الأحد","AvgTemp_C":43.0,"Weather_Category":"Hot","المعتمرين":0,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":11087.0,"Absolute_Error":11087.0,"Percentage_Error":0.0,"Hajj_Count_For_Recommendation":23096,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"07-11-1446","Hijri_Month":"ذو القعدة","Gregorian_Date":"2025-05-05","Weekday_AR":"الاثنين","AvgTemp_C":43.0,"Weather_Category":"Hot","المعتمرين":0,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":11281.0,"Absolute_Error":11281.0,"Percentage_Error":0.0,"Hajj_Count_For_Recommendation":23931,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"08-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-04","Weekday_AR":"الأربعاء","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5098,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4842.0,"Absolute_Error":256.0,"Percentage_Error":5.03,"Hajj_Count_For_Recommendation":39638,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"09-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-05","Weekday_AR":"الخميس","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":6372,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5762.0,"Absolute_Error":610.0,"Percentage_Error":9.57,"Hajj_Count_For_Recommendation":16,"Tawaf_Ifadah_Count_For_Recommendation":0},{"Hijri_Year":1446,"Hijri_Date":"10-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-06","Weekday_AR":"الجمعة","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":6881,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":6350.0,"Absolute_Error":531.0,"Percentage_Error":7.72,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":39212},{"Hijri_Year":1446,"Hijri_Date":"11-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-07","Weekday_AR":"السبت","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5861,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5284.0,"Absolute_Error":577.0,"Percentage_Error":9.84,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":37492},{"Hijri_Year":1446,"Hijri_Date":"12-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-08","Weekday_AR":"الأحد","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5098,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4175.0,"Absolute_Error":923.0,"Percentage_Error":18.11,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":35772},{"Hijri_Year":1446,"Hijri_Date":"13-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-09","Weekday_AR":"الاثنين","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4188.0,"Absolute_Error":909.0,"Percentage_Error":17.83,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":34053},{"Hijri_Year":1446,"Hijri_Date":"14-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-10","Weekday_AR":"الثلاثاء","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5098,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4175.0,"Absolute_Error":923.0,"Percentage_Error":18.1,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":32333},{"Hijri_Year":1446,"Hijri_Date":"15-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-11","Weekday_AR":"الأربعاء","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5098,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4171.0,"Absolute_Error":927.0,"Percentage_Error":18.19,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":30613},{"Hijri_Year":1446,"Hijri_Date":"16-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-12","Weekday_AR":"الخميس","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":6372,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5187.0,"Absolute_Error":1185.0,"Percentage_Error":18.6,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":28893},{"Hijri_Year":1446,"Hijri_Date":"17-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-13","Weekday_AR":"الجمعة","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":6881,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5602.0,"Absolute_Error":1279.0,"Percentage_Error":18.59,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":27173},{"Hijri_Year":1446,"Hijri_Date":"18-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-14","Weekday_AR":"السبت","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5861,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5133.0,"Absolute_Error":728.0,"Percentage_Error":12.41,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":25453},{"Hijri_Year":1446,"Hijri_Date":"19-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-15","Weekday_AR":"الأحد","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5027.0,"Absolute_Error":70.0,"Percentage_Error":1.38,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":23734},{"Hijri_Year":1446,"Hijri_Date":"20-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-16","Weekday_AR":"الاثنين","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5049.0,"Absolute_Error":48.0,"Percentage_Error":0.94,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":22014},{"Hijri_Year":1446,"Hijri_Date":"21-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-17","Weekday_AR":"الثلاثاء","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5055.0,"Absolute_Error":42.0,"Percentage_Error":0.83,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":20294},{"Hijri_Year":1446,"Hijri_Date":"22-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-18","Weekday_AR":"الأربعاء","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5035.0,"Absolute_Error":62.0,"Percentage_Error":1.22,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":18574},{"Hijri_Year":1446,"Hijri_Date":"23-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-19","Weekday_AR":"الخميس","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":6372,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":6293.0,"Absolute_Error":79.0,"Percentage_Error":1.24,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":16854},{"Hijri_Year":1446,"Hijri_Date":"24-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-20","Weekday_AR":"الجمعة","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":6881,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":6801.0,"Absolute_Error":80.0,"Percentage_Error":1.16,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":15135},{"Hijri_Year":1446,"Hijri_Date":"25-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-21","Weekday_AR":"السبت","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5861,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5786.0,"Absolute_Error":75.0,"Percentage_Error":1.27,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":13415},{"Hijri_Year":1446,"Hijri_Date":"26-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-22","Weekday_AR":"الأحد","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5036.0,"Absolute_Error":61.0,"Percentage_Error":1.2,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":11695},{"Hijri_Year":1446,"Hijri_Date":"27-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-23","Weekday_AR":"الاثنين","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":5028.0,"Absolute_Error":69.0,"Percentage_Error":1.34,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":9975},{"Hijri_Year":1446,"Hijri_Date":"28-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-24","Weekday_AR":"الثلاثاء","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5098,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4973.0,"Absolute_Error":125.0,"Percentage_Error":2.46,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":8255},{"Hijri_Year":1446,"Hijri_Date":"29-12-1446","Hijri_Month":"ذو الحجة","Gregorian_Date":"2025-06-25","Weekday_AR":"الأربعاء","AvgTemp_C":44.3,"Weather_Category":"Hot","المعتمرين":5097,"Crowding_Level":"Low","Season_Type":"Normal Days","Prediction":4986.0,"Absolute_Error":111.0,"Percentage_Error":2.17,"Hajj_Count_For_Recommendation":0,"Tawaf_Ifadah_Count_For_Recommendation":6535}],"season":[{"Season_Type":"Normal Days","Number_of_Days":296,"Mean_Actual_Visitors":41741.8716,"MAE":2885.8833,"RMSE":7292.6197,"MAE_Percentage":6.9136,"RMSE_Percentage":17.4708,"MAPE":7.7817},{"Season_Type":"Peak Season - Ramadan","Number_of_Days":29,"Mean_Actual_Visitors":137084.8276,"MAE":24624.0181,"RMSE":31198.8984,"MAE_Percentage":17.9626,"RMSE_Percentage":22.7588,"MAPE":17.7007}],"features":[{"Feature":"diff_7","Importance":0.4369405806064606},{"Feature":"diff_14","Importance":0.08940228074789047},{"Feature":"rolling_mean_30","Importance":0.07391354441642761},{"Feature":"rolling_mean_7","Importance":0.05798003077507019},{"Feature":"rolling_mean_14","Importance":0.04925496876239777},{"Feature":"dayofyear","Importance":0.04841812700033188},{"Feature":"is_ramadan","Importance":0.04111621901392937},{"Feature":"lag_7","Importance":0.03754237294197083},{"Feature":"diff_30","Importance":0.03364479914307594},{"Feature":"rolling_std_7","Importance":0.0306656789034605},{"Feature":"rolling_std_14","Importance":0.013894765637815},{"Feature":"rolling_std_30","Importance":0.01297095324844122},{"Feature":"AvgTemp_C","Importance":0.01100168284028769},{"Feature":"lag_30","Importance":0.01098202541470528},{"Feature":"lag_14","Importance":0.008838968351483345}]};
+
+// ===== Monthly averages from real predictions =====
+const MONTHS_ORDER_XG = ["محرم","صفر","ربيع الأول","ربيع الآخر","جماد الأول","جماد الآخر","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة"];
+
+function buildMonthlyStats() {
+  const stats = {};
+  MONTHS_ORDER_XG.forEach(m => {
+    const rows = XGBOOST_DATA.predictions.filter(x => x['Hijri_Month'] === m && x['المعتمرين'] > 0);
+    if (!rows.length) { stats[m] = {avg:0,max:0,count:0,pred_avg:0}; return; }
+    const actuals = rows.map(x => x['المعتمرين']);
+    const preds = rows.map(x => x['Prediction']);
+    stats[m] = {
+      avg: Math.round(actuals.reduce((a,b)=>a+b,0)/actuals.length),
+      max: Math.max(...actuals),
+      count: rows.length,
+      pred_avg: Math.round(preds.reduce((a,b)=>a+b,0)/preds.length)
+    };
+  });
+  return stats;
+}
+
+const XG_MONTHLY = buildMonthlyStats();
+
+// Override runModel if exists to use real data
+window.addEventListener('load', function() {
+  // Update KPI cards if they exist
+  updateXGKPIs();
+  // Add model results panel
+  injectModelResultsPanel();
+});
+
+function updateXGKPIs() {
+  const mr = XGBOOST_DATA.results;
+  // Try to find and update existing elements
+  const mapeEl = document.getElementById('stat-mape');
+  if(mapeEl) mapeEl.textContent = mr.MAPE ? mr.MAPE.toFixed(2)+'%' : '-';
+  const maeEl = document.getElementById('stat-mae');
+  if(maeEl) maeEl.textContent = mr.MAE ? Math.round(mr.MAE).toLocaleString('ar-SA') : '-';
+}
+
+function injectModelResultsPanel() {
+  // Find model page or indicators page to inject into
+  const target = document.getElementById('page-model') || document.getElementById('page-indicators');
+  if(!target) return;
+
+  const mr = XGBOOST_DATA.results;
+  const season = XGBOOST_DATA.season;
+  const features = XGBOOST_DATA.features;
+
+  // Build HTML
+  const panel = document.createElement('div');
+  panel.style.cssText = 'background:white;border:1px solid #d4c9a8;border-radius:16px;overflow:hidden;margin-top:20px;';
+  
+  // Model metrics row
+  const metricsHTML = `
+    <div style="padding:16px 20px;border-bottom:1px solid #f2e9d0;background:#f9f4e8;">
+      <h3 style="font-family:'Amiri',serif;color:#064545;font-size:17px;font-weight:700;margin-bottom:14px;">📊 نتائج نموذج XGBoost — 1446 هـ</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+        ${[
+          ['MAE',Math.round(mr.MAE).toLocaleString('ar-SA'),'متوسط الخطأ المطلق'],
+          ['RMSE',Math.round(mr.RMSE).toLocaleString('ar-SA'),'جذر متوسط مربع الخطأ'],
+          ['MAPE',mr.MAPE.toFixed(2)+'%','متوسط الخطأ النسبي'],
+          ['MAE%',mr.MAE_Percentage.toFixed(2)+'%','نسبة الخطأ من المتوسط']
+        ].map(([k,v,l])=>`
+          <div style="background:white;border:1px solid #e8dfc0;border-radius:12px;padding:14px;text-align:center;">
+            <div style="font-size:11px;color:#7a7060;font-weight:700;margin-bottom:4px;">${l}</div>
+            <div style="font-size:22px;font-weight:800;color:#064545;">${v}</div>
+            <div style="font-size:10px;color:#9a6e1a;font-weight:700;margin-top:2px;">${k}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      
+      <div style="padding:16px 20px;border-left:1px solid #f2e9d0;">
+        <h4 style="color:#064545;font-size:14px;font-weight:800;margin-bottom:12px;">🌙 تحليل الخطأ حسب الموسم</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead>
+            <tr style="background:#f2e9d0;">
+              <th style="padding:7px 10px;text-align:right;color:#7a7060;font-weight:800;">الموسم</th>
+              <th style="padding:7px 10px;text-align:center;color:#7a7060;font-weight:800;">أيام</th>
+              <th style="padding:7px 10px;text-align:center;color:#7a7060;font-weight:800;">MAE%</th>
+              <th style="padding:7px 10px;text-align:center;color:#7a7060;font-weight:800;">MAPE%</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${season.map((s,i)=>`
+              <tr style="background:${i%2?'white':'#fffdf7'}">
+                <td style="padding:7px 10px;font-weight:700;color:#1c1a14;">${s.Season_Type==='Peak Season - Ramadan'?'🌙 رمضان':'📅 أيام عادية'}</td>
+                <td style="padding:7px 10px;text-align:center;">${s.Number_of_Days}</td>
+                <td style="padding:7px 10px;text-align:center;color:${s.MAE_Percentage>15?'#c0392b':'#22a06b'};font-weight:700;">${parseFloat(s.MAE_Percentage).toFixed(1)}%</td>
+                <td style="padding:7px 10px;text-align:center;color:${s.MAPE>15?'#c0392b':'#22a06b'};font-weight:700;">${parseFloat(s.MAPE).toFixed(1)}%</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div style="padding:16px 20px;">
+        <h4 style="color:#064545;font-size:14px;font-weight:800;margin-bottom:12px;">🎯 أهم خصائص النموذج</h4>
+        ${features.map(f=>{
+          const pct = Math.round(f.Importance * 100 / features[0].Importance);
+          return `<div style="margin-bottom:8px;">
+            <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:#3a3520;margin-bottom:3px;">
+              <span>${f.Feature}</span>
+              <span style="color:#9a6e1a;">${(f.Importance*100).toFixed(1)}%</span>
+            </div>
+            <div style="height:6px;background:#e8dfc0;border-radius:999px;overflow:hidden;">
+              <div style="width:${pct}%;height:100%;background:linear-gradient(90deg,#064545,#1a6e6e);border-radius:999px;"></div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+  
+  panel.innerHTML = metricsHTML;
+  target.appendChild(panel);
+}
+
+// Override runModel to use real XGBoost data
+function runModel() {
+  const month = document.getElementById('model-month')?.value;
+  const day = document.getElementById('model-day')?.value;
+  const card = document.getElementById('model-result-card');
+  const tip = document.getElementById('model-tip');
+  if(!card) return;
+  if(!month) {
+    card.innerHTML = '<div style="font-size:40px;margin-bottom:12px">🕌</div><div style="color:#7a7060;font-size:14px;font-weight:600">اختر الشهر للحصول على التنبؤ</div>';
+    if(tip) tip.style.display='none';
+    return;
+  }
+  
+  const monthRows = XGBOOST_DATA.predictions.filter(x => x['Hijri_Month'] === month && x['المعتمرين'] > 0);
+  const stats = XG_MONTHLY[month];
+  
+  let avg = stats?.pred_avg || stats?.avg || 0;
+  
+  // Level thresholds from actual data
+  const allPreds = XGBOOST_DATA.predictions.filter(x=>x['المعتمرين']>0).map(x=>x['Prediction']).sort((a,b)=>a-b);
+  const q1=allPreds[Math.floor(allPreds.length*.33)];
+  const q2=allPreds[Math.floor(allPreds.length*.66)];
+  const q3=allPreds[Math.floor(allPreds.length*.9)];
+  
+  let lvl='Low',icon='🟢',color='#22a06b',bg='#e6f7f0',ar='منخفض';
+  if(avg>q3){lvl='Critical';icon='🔴';color='#c0392b';bg='#fdecea';ar='حرج';}
+  else if(avg>q2){lvl='High';icon='🟠';color='#d97706';bg='#fff3e0';ar='مرتفع';}
+  else if(avg>q1){lvl='Medium';icon='🟡';color='#c49030';bg='#fdf3dc';ar='متوسط';}
+  if(month==='رمضان'){lvl='Critical';icon='🔴';color='#c0392b';bg='#fdecea';ar='حرج';}
+  
+  // Best day
+  const byDay={};
+  monthRows.forEach(x=>{
+    if(!byDay[x.Weekday_AR]) byDay[x.Weekday_AR]=[];
+    byDay[x.Weekday_AR].push(x.Prediction);
+  });
+  let bestDay='',bestAvg=Infinity;
+  Object.entries(byDay).forEach(([d,vals])=>{
+    const a=vals.reduce((s,v)=>s+v,0)/vals.length;
+    if(a<bestAvg){bestAvg=a;bestDay=d;}
+  });
+  
+  card.innerHTML = `
+    <div style="font-size:52px;margin-bottom:8px">${icon}</div>
+    <div style="font-size:26px;font-weight:800;color:${color};margin-bottom:4px">${ar}</div>
+    <div style="font-size:12px;color:#7a7060;margin-bottom:16px">مستوى الازدحام المتوقع — بيانات XGBoost فعلية</div>
+    <div style="background:${bg};border:1px solid ${color}40;border-radius:14px;padding:14px 24px;display:inline-block">
+      <div style="font-size:28px;font-weight:800;color:${color}">${Math.round(avg).toLocaleString('ar-SA')}</div>
+      <div style="font-size:12px;color:#7a7060;margin-top:2px">زائر متوقع (متوسط الشهر)</div>
+    </div>
+  `;
+  
+  if(tip) {
+    tip.style.display='block';
+    tip.innerHTML = `💡 <b>أفضل يوم للزيارة في ${month}:</b> ${bestDay} — متوسط ${Math.round(bestAvg).toLocaleString('ar-SA')} زائر`;
+  }
+}
+</script>
+</body>
+</html>
